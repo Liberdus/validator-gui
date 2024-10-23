@@ -176,7 +176,7 @@ export default function ToastContextProvider({
                         .then(() => {
                           setIsButtonPressed(false);
                           window.open(
-                            "https://github.com/Shardeum/shardeum-bug-reporting/issues"
+                            "https://github.com/Liberdus/liberdus-bug-reporting/issues"
                           );
                         })
                         .catch(() => {

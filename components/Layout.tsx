@@ -14,10 +14,10 @@ export default function Layout({ children }: PropsWithChildren) {
   return (
     <>
       <Head>
-        <title>Shardeum Dashboard</title>
+        <title>Liberdus Dashboard</title>
         <meta
           name="description"
-          content="Dashboard to configure a Shardeum validator"
+          content="Dashboard to configure a Liberdus validator"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

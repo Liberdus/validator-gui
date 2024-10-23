@@ -32,14 +32,14 @@ export const SupportOptions = ({ onClose }: SupportOptionsProps) => {
           <div className="flex flex-col">
             <Link
               className="flex gap-x-1 cursor-pointer items-center py-1"
-              href="https://discord.com/invite/shardeum"
+              href="https://discord.com/invite/liberdus"
               target="_blank"
             >
               <span className="font-semibold">Join Discord</span>
               <ArrowUpRightIcon className="h-2.5 w-3 text-gray-500" />
             </Link>
             <span className="bodyFg font-light">
-              Get help from community and core contributors of Shardeum.
+              Get help from community and core contributors of Liberdus.
             </span>
           </div>
         </div>
@@ -56,7 +56,7 @@ export const SupportOptions = ({ onClose }: SupportOptionsProps) => {
           <div className="flex flex-col">
             <Link
               className="flex gap-x-1 cursor-pointer items-center py-1"
-              href="https://t.me/s/shardeum"
+              href="https://t.me/s/liberdus"
               target="_blank"
             >
               <span className="font-semibold">Join Telegram</span>
@@ -79,7 +79,7 @@ export const SupportOptions = ({ onClose }: SupportOptionsProps) => {
           <div className="flex flex-col">
             <Link
               className="flex gap-x-1 cursor-pointer items-center py-1"
-              href="https://github.com/shardeum"
+              href="https://github.com/liberdus"
               target="_blank"
             >
               <span className="font-semibold">View Github</span>
@@ -103,15 +103,15 @@ export const SupportOptions = ({ onClose }: SupportOptionsProps) => {
           <div className="flex flex-col">
             <Link
               className="flex gap-x-1 cursor-pointer items-center py-1 tooltip"
-              href="mailto:support@shardeum.org"
+              href="mailto:support@liberdus.org"
               target="_blank"
-              data-tip="support@shardeum.org"
+              data-tip="support@liberdus.org"
             >
               <span className="font-semibold">Write to us</span>
               <ArrowUpRightIcon className="h-2.5 w-3 text-gray-500" />
             </Link>
             <span className="bodyFg font-light">
-              Get support from Shardeum team.
+              Get support from Liberdus team.
             </span>
           </div>
         </div> */}

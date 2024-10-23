@@ -10,9 +10,9 @@ const yaml = require('js-yaml')
 import { doubleCsrfProtection } from './csrf';
 import { checkAuthHandler } from './auth';
 
-const ACCOUNT_INFO_URL = process.env.ACCOUNT_INFO_URL ?? "https://explorer-atomium.shardeum.org/api/account";
+const ACCOUNT_INFO_URL = process.env.ACCOUNT_INFO_URL ?? "https://explorer-atomium.liberdus.org/api/account";
 // const FAUCET_CLAIM_URL =
-//   process.env.FAUCET_CLAIM_URL ?? "https://api.shardeum.org/api/transfer";
+//   process.env.FAUCET_CLAIM_URL ?? "https://api.liberdus.org/api/transfer";
 
 const apiRouter = express.Router()
 configureNodeHandlers(apiRouter)

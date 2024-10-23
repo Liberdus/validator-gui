@@ -51,7 +51,7 @@ const Login = () => {
                 GeistSans.className
               }
             >
-              Your node operation is key to Shardeum&apos;s success—thank you!
+              Your node operation is key to Liberdus&apos;s success—thank you!
             </span>
             <div className="flex justify-start ml-3">
               <div className="max-w-[200px] break-normal flex flex-col justify-start">
@@ -107,10 +107,10 @@ Login.getLayout = function getLayout(page: ReactElement) {
   return (
     <>
       <Head>
-        <title>Shardeum Dashboard</title>
+        <title>Liberdus Dashboard</title>
         <meta
           name="description"
-          content="Dashboard to configure a Shardeum validator"
+          content="Dashboard to configure a Liberdus validator"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

@@ -70,7 +70,7 @@ export const ToastBox = ({
                   <button className="text-primary" onClick={viewLogsOnClick}>
                     View Logs
                   </button>
-                  <Link href="mailto:support@shardeum.org" target="_blank">
+                  <Link href="mailto:support@liberdus.org" target="_blank">
                     <button className="text-primary">Get Help</button>
                   </Link>
                 </div>

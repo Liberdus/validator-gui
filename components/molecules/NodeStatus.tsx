@@ -420,7 +420,7 @@ export const NodeStatus = ({ isWalletConnected, address }: NodeStatusProps) => {
       "need-stake":
         "Your node is running, but it will not join the network until you stake.",
       "waiting-for-network":
-        "Node is trying to connect to the Shardeum network. If your node is stuck in this for more than 5 minutes then please contact us so we can debug and solve this.",
+        "Node is trying to connect to the Liberdus network. If your node is stuck in this for more than 5 minutes then please contact us so we can debug and solve this.",
       selected:
         "Your node has been selected from standby list and will be validating soon",
       ready: "Your node is getting ready to join active validator list",
@@ -450,7 +450,7 @@ export const NodeStatus = ({ isWalletConnected, address }: NodeStatusProps) => {
               data-tip={
                 isWalletConnected
                   ? statusTip.get(nodeStatus?.state || "stopped")
-                  : "Please connect your wallet to the Shardeum network"
+                  : "Please connect your wallet to the Liberdus network"
               }
             >
               <InformationCircleIcon className="h-4 w-4 stroke-2" />

@@ -31,12 +31,12 @@ const tokensClaimedByKey = "tokensClaimedBy";
 export const onboardingCompletedKey = "onboardingCompleted";
 
 export const VALIDATOR_GUI_FAQS_URL =
-  process.env.VALIDATOR_GUI_FAQS_URL || "https://shardeum.org/faq/general";
+  process.env.VALIDATOR_GUI_FAQS_URL || "https://liberdus.org/faq/general";
 export const VALIDATOR_GUI_DOCS_URL =
-  process.env.VALIDATOR_GUI_DOCS_URL || "https://docs.shardeum.org";
+  process.env.VALIDATOR_GUI_DOCS_URL || "https://docs.liberdus.org";
 export const FAUCET_CLAIM_DOCS_URL =
   process.env.FAUCET_CLAIM_DOCS_URL ||
-  "https://docs.shardeum.org/docs/faucet/claim";
+  "https://docs.liberdus.org/docs/faucet/claim";
 
 const Onboarding = () => {
   const [isNodeStarted, setIsNodeStarted] = useState(false);
@@ -206,13 +206,13 @@ const Onboarding = () => {
             <div className="h-full w-full flex flex-col items-center justify-between">
               <div className="max-w-sm">
                 <span className="font-semibold text-3xl w-full">
-                  Welcome to Shardeum Validator Setup
+                  Welcome to Liberdus Validator Setup
                 </span>
                 <div className="flex flex-col gap-y-3 mt-6">
                   <div className="flex gap-x-1 items-center">
                     <CheckCircleIcon className="h-5 w-5" />
                     <span className="text-sm">
-                      Connect to the Shardeum network step-by-step.
+                      Connect to the Liberdus network step-by-step.
                     </span>
                   </div>
                   <div className="flex gap-x-1 items-center">
@@ -290,7 +290,7 @@ const Onboarding = () => {
                     </div>
                     <div className="flex flex-col w-full pl-7">
                       <span className="font-light text-sm text-gray-600">
-                        Connect your wallet and switch to Shardeum Atomium
+                        Connect your wallet and switch to Liberdus Atomium
                         Network.
                       </span>
                       <div className="flex flex-col mt-4 pr-5">
@@ -308,7 +308,7 @@ const Onboarding = () => {
                                 disabled={!isConnected}
                                 onClick={() => switchNetwork?.(CHAIN_ID)}
                               >
-                                2. Switch to Shardeum Atomium
+                                2. Switch to Liberdus Atomium
                               </button>
                             </div>
                           )}
@@ -339,7 +339,7 @@ const Onboarding = () => {
                     <div className="flex items-center gap-x-2 max-w-xl">
                       <CheckCircleIcon className="bg-white h-6 w-6 rounded-full text-xs text-green-700" />
                       <span className="font-semibold flex justify-between items-center w-full pr-5">
-                        Successfully connected to the Shardeum Network
+                        Successfully connected to the Liberdus Network
                       </span>
                     </div>
                     <span className="text-gray-600 text-sm ml-8">
@@ -366,7 +366,7 @@ const Onboarding = () => {
                     </div>
                     <div className="flex flex-col w-full pl-7">
                       <span className="text-gray-600 text-sm">
-                        Claim SHM tokens from Shardeum faucet as a reward.
+                        Claim SHM tokens from Liberdus faucet as a reward.
                       </span>
                       <div className="flex flex-col mt-4 pr-5">
                         {tokenClaimPhase === 0 && (
@@ -686,7 +686,7 @@ const Onboarding = () => {
         <div className="flex flex-col h-full w-full justify-center items-center">
           <div className="bg-white max-w-sm flex flex-col justify-center items-center p-8 -translate-y-12 border shadow-md gap-y-3">
             <span className="text-md w-full text-center font-semibold">
-              Congratulations! You successfully setup your Shardeum node.
+              Congratulations! You successfully setup your Liberdus node.
             </span>
             <button
               className="bg-primary px-4 py-2 w-full text-white text-sm rounded"
@@ -710,10 +710,10 @@ Onboarding.getLayout = function getLayout(page: ReactElement) {
   return (
     <>
       <Head>
-        <title>Shardeum Dashboard</title>
+        <title>Liberdus Dashboard</title>
         <meta
           name="description"
-          content="Dashboard to configure a Shardeum validator"
+          content="Dashboard to configure a Liberdus validator"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

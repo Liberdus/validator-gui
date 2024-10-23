@@ -17,7 +17,7 @@ export const Logo: React.FC<LogoProps> = ({
         <Image
           className={className || "w-32"}
           src={logo}
-          alt="Shardeum Logo"
+          alt="Liberdus Logo"
           priority
         />
       )}
@@ -25,7 +25,7 @@ export const Logo: React.FC<LogoProps> = ({
         <Image
           className={className || "w-32"}
           src={minimalLogo}
-          alt="Shardeum Logo"
+          alt="Liberdus Logo"
           priority
         />
       )}

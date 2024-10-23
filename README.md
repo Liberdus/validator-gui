@@ -1,25 +1,25 @@
 # Overview
 
-The Operator CLI is a command line tool for managing a validator instance on a Shardeum network. The Operator CLI tool also collects debug data from running Shardus app network.
+The Operator CLI is a command line tool for managing a validator instance on a Liberdus network. The Operator CLI tool also collects debug data from running Shardus app network.
 
 ## Getting Started with Local Development
 
-Before running Shardus CLI, it's essential to set up the Shardeum server. Detailed instructions for this setup can be found in the [Shardeum README](https://github.com/shardeum/shardeum).
+Before running Shardus CLI, it's essential to set up the Liberdus server. Detailed instructions for this setup can be found in the [Liberdus README](https://github.com/liberdus/liberdus).
 
 ### Cloning and Preparing the CLI
 
 Clone the Shardus CLI repository and navigate into the project directory:
 
 ```bash
-git clone git@github.com:shardeum/validator-cli.git
+git clone git@github.com:liberdus/validator-cli.git
 cd validator-cli
 ```
 
-The validator CLI typically requires a symlink to the Shardeum repo at a specific path. If you're running the CLI manually, ensure the symlink is set up correctly:
+The validator CLI typically requires a symlink to the Liberdus repo at a specific path. If you're running the CLI manually, ensure the symlink is set up correctly:
 
 ```bash
-ln -s /path/to/shardeum/repo ../validator
-ls ../validator  # Should print the shardeum repo
+ln -s /path/to/liberdus/repo ../validator
+ls ../validator  # Should print the liberdus repo
 ```
 
 ### Installing Dependencies
@@ -136,10 +136,10 @@ For GUI-related commands, refer to the [gui-commands.ts](./src/gui-commands.ts) 
 
 ## Getting Started with Local Development
 
-Before running Shardus CLI, it's essential to set up the [Shardeum server](https://github.com/shardeum/shardeum), [JSON RPC server](https://github.com/shardeum/json-rpc-server) and configure [CLI](https://github.com/shardeum/validator-cli) with updated node details.
+Before running Shardus CLI, it's essential to set up the [Liberdus server](https://github.com/liberdus/liberdus), [JSON RPC server](https://github.com/liberdus/json-rpc-server) and configure [CLI](https://github.com/liberdus/validator-cli) with updated node details.
 
 ```bash
-git clone git@github.com:shardeum/validator-gui.git
+git clone git@github.com:liberdus/validator-gui.git
 cd validator-gui
 ```
 
@@ -189,8 +189,8 @@ Contributions are very welcome! Everyone interacting in our codebases, issue tra
 
 For help, discussion about code, or any other conversation that would benefit from being searchable:
 
-[Discuss Shardeum on GitHub](https://github.com/shardeum/shardeum/discussions)
+[Discuss Liberdus on GitHub](https://github.com/liberdus/liberdus/discussions)
 
-For chatting with others using Shardeum:
+For chatting with others using Liberdus:
 
-[Join the Shardeum Discord Server](https://discord.com/invite/shardeum)
+[Join the Liberdus Discord Server](https://discord.com/invite/liberdus)

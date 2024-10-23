@@ -6,7 +6,7 @@ export default function Document() {
       <Head >
         <meta
           name="description"
-          content="Dashboard to configure a Shardeum validator"
+          content="Dashboard to configure a Liberdus validator"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

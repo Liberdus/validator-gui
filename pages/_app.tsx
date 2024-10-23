@@ -35,20 +35,20 @@ function getDefaultLayout(page: ReactElement) {
 }
 
 export const RPC_URL =
-  process.env.RPC_SERVER_URL ?? "https://atomium.shardeum.org/";
+  process.env.RPC_SERVER_URL ?? "https://atomium.liberdus.org/";
 export const EXPLORER_URL =
-  process.env.NEXT_EXPLORER_URL ?? "https://explorer-atomium.shardeum.org/";
+  process.env.NEXT_EXPLORER_URL ?? "https://explorer-atomium.liberdus.org/";
 export const CHAIN_ID = process.env.NEXT_PUBLIC_CHAIN_ID
   ? +process.env.NEXT_PUBLIC_CHAIN_ID
   : 8082;
 
 export const devnet: Chain = {
   id: CHAIN_ID,
-  name: "Shardeum",
-  network: "shardeum_devnet",
+  name: "Liberdus",
+  network: "liberdus_devnet",
   nativeCurrency: {
     decimals: 18,
-    name: "Shardeum",
+    name: "Liberdus",
     symbol: "SHM",
   },
   rpcUrls: {

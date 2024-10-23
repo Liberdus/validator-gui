@@ -326,7 +326,7 @@ Dashboard.getLayout = function getLayout(page: ReactElement) {
   return (
     <>
       <Head >
-        <title>Shardeum Dashboard</title>
+        <title>Liberdus Dashboard</title>
       </Head>
       <div className="bg-[$FAFAFA] relative">{page}</div>
     </>

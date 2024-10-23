@@ -28,7 +28,7 @@ export interface NodeStatus {
     appData: {
       activeVersion: string;
       minVersion: string;
-      shardeumVersion: string;
+      liberdusVersion: string;
     };
     externalIp: string;
     externalPort: number;

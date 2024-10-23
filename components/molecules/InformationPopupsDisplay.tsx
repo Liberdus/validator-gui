@@ -14,7 +14,7 @@ const newValidatorVersionAvailableKey = "newValidatorVersionAvailable";
 
 const VERSION_UPDATE_REPOSITORY_URL =
   process.env.VERSION_UPDATE_REPOSITORY_URL ??
-  "https://github.com/shardeum/validator-dashboard";
+  "https://github.com/liberdus/validator-dashboard";
 
 export const InformationPopupsDisplay = () => {
   const { addNotification } = useNotificationsStore((state: any) => ({
@@ -27,7 +27,7 @@ export const InformationPopupsDisplay = () => {
       (version?.runningCliVersion || 0) < (version?.latestCliVersion || 0);
     const newValidatorAvailable =
       (version?.runnningValidatorVersion || 0) <
-      (version?.activeShardeumVersion || 0);
+      (version?.activeLiberdusVersion || 0);
 
     if (newGuiAvailable) {
       addNotification({
@@ -149,7 +149,7 @@ export const InformationPopupsDisplay = () => {
                 New validator version available
               </span>
               <span className="bodyFg font-light text-xs">
-                A new validator version (V {version?.activeShardeumVersion}) is
+                A new validator version (V {version?.activeLiberdusVersion}) is
                 available and ready to update.
               </span>
             </div>

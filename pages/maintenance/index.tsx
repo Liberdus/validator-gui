@@ -31,7 +31,7 @@ const versionWarning = (version: NodeVersion) => {
   if (
     version.runningCliVersion < version.minimumCliVersion ||
     version.runningGuiVersion < version.minimumGuiVersion ||
-    version.runnningValidatorVersion < version.minShardeumVersion
+    version.runnningValidatorVersion < version.minLiberdusVersion
   ) {
     return (
       <div className="flex text-red-500 items-center">
@@ -48,7 +48,7 @@ const versionWarning = (version: NodeVersion) => {
   if (
     version.runningCliVersion < version.latestCliVersion ||
     version.runningGuiVersion < version.latestGuiVersion ||
-    version.runnningValidatorVersion < version.activeShardeumVersion
+    version.runnningValidatorVersion < version.activeLiberdusVersion
   ) {
     return (
       <div className="flex text-orange-500 items-center">
@@ -454,13 +454,13 @@ export default function Maintenance() {
                 </div>
                 <div>
                   <span className="font-semibold">Active Network Version:</span>{" "}
-                  {nullPlaceholder(version.activeShardeumVersion)}
+                  {nullPlaceholder(version.activeLiberdusVersion)}
                 </div>
                 <div>
                   <span className="font-semibold">
                     Validator Minimum Version:
                   </span>{" "}
-                  {nullPlaceholder(version.minShardeumVersion)}
+                  {nullPlaceholder(version.minLiberdusVersion)}
                 </div>
                 <div className="flex-grow" />
 

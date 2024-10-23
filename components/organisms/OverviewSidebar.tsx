@@ -19,7 +19,7 @@ export const OverviewSidebar: React.FC = () => {
   const isGuiUpdatePending =
     version?.runningCliVersion !== version?.latestCliVersion;
   const isValidatorUpdatePending =
-    version?.runnningValidatorVersion !== version?.activeShardeumVersion;
+    version?.runnningValidatorVersion !== version?.activeLiberdusVersion;
 
   return (
     <div className="flex flex-col gap-y-16 scroll-smooth">
@@ -88,14 +88,14 @@ export const OverviewSidebar: React.FC = () => {
                       ? "bg-severeFg tooltip"
                       : "bg-successFg")
                   }
-                  data-tip={`Your validator version is out of date. Please update to the latest version (${version?.activeShardeumVersion})`}
+                  data-tip={`Your validator version is out of date. Please update to the latest version (${version?.activeLiberdusVersion})`}
                 ></div>
               </div>
               <span
                 className={`font-light text-xs ${
                   isGuiUpdatePending ? "tooltip" : ""
                 }`}
-                data-tip={`Your Validator version is out of date. Please update to the latest version (${version?.activeShardeumVersion})`}
+                data-tip={`Your Validator version is out of date. Please update to the latest version (${version?.activeLiberdusVersion})`}
               >
                 Validator Version <u>{version?.runnningValidatorVersion}</u>
               </span>

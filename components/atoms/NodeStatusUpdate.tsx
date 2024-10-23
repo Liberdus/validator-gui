@@ -18,7 +18,7 @@ const getStatusUpdateText = (status: string) => {
       break;
     case "waiting-for-network":
       statusUpdateText =
-        "Your node is trying to connect to the Shardeum network. If this status persists please reach out to us.";
+        "Your node is trying to connect to the Liberdus network. If this status persists please reach out to us.";
       break;
     case "ready":
       statusUpdateText =

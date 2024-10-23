@@ -47,13 +47,13 @@ export default function Performance() {
                 </div>
                 <div>
                   <span className="font-semibold">Active Network Version:</span>{" "}
-                  {nullPlaceholder(version.activeShardeumVersion)}
+                  {nullPlaceholder(version.activeLiberdusVersion)}
                 </div>
                 <div>
                   <span className="font-semibold">
                     Validator Minimum Version:
                   </span>{" "}
-                  {nullPlaceholder(version.minShardeumVersion)}
+                  {nullPlaceholder(version.minLiberdusVersion)}
                 </div>
               </div>
             </div>
