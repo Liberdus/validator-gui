@@ -52,7 +52,7 @@ export const AddStakeModal = () => {
         setCurrentToast({
           severity: ToastSeverity.SUCCESS,
           title: "Stake Added",
-          description: `${stakedAmount.toFixed(2)} SHM staked Successfully`,
+          description: `${stakedAmount.toFixed(2)} LBD staked Successfully`,
           followupNotification: {
             title: "Stake Added",
             type: NotificationType.REWARD,
@@ -145,7 +145,7 @@ export const AddStakeModal = () => {
               >
                 <span>Minimum stake requirement: </span>
                 <span className="font-semibold">
-                  {minimumStakeRequirement.toFixed(0)} SHM
+                  {minimumStakeRequirement.toFixed(0)} LBD
                 </span>
               </div>
               {data?.formatted && (

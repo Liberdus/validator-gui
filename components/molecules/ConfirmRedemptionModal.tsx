@@ -60,7 +60,7 @@ export const ConfirmRedemptionModal = ({
         />
       </div>
       <span className="break-words bodyFg text-sm leading-5 max-w-md">
-        By claiming your reward redemption you will be unstaking SHM.
+        By claiming your reward redemption you will be unstaking LBD.
         Here&apos;s the breakdown of the total amount:
       </span>
       <hr className="my-2" />
@@ -68,7 +68,7 @@ export const ConfirmRedemptionModal = ({
         <div className="flex justify-between">
           <span className="bodyFg text-sm">Total unstake amount</span>
           <span className="text-sm font-semibold">
-            {(currentRewards + currentStake).toFixed(2)} SHM
+            {(currentRewards + currentStake).toFixed(2)} LBD
           </span>
         </div>
         <div className="flex justify-end w-full">

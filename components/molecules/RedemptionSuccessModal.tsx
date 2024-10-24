@@ -35,7 +35,7 @@ export const RedemptionSuccessModal = ({
 
         <span className="text-sm bodyFg text-center">
           You&apos;ve successfully unstaked{" "}
-          <span className="font-semibold">{totalAmount.toFixed(2)} SHM</span>{" "}
+          <span className="font-semibold">{totalAmount.toFixed(2)} LBD</span>{" "}
           into your wallet.
         </span>
 

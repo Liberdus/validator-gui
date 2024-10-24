@@ -135,7 +135,7 @@ const Onboarding = () => {
       setCurrentToast({
         severity: ToastSeverity.SUCCESS,
         title: "Stake Added",
-        description: `${stakedAmount.toFixed(2)} SHM staked Successfully`,
+        description: `${stakedAmount.toFixed(2)} LBD staked Successfully`,
         followupNotification: {
           title: "Stake Added",
           type: NotificationType.REWARD,
@@ -180,7 +180,7 @@ const Onboarding = () => {
         title: "Claiming Unsuccessful",
         description: data?.message,
         followupNotification: {
-          title: "Claiming SHM Unsuccessful",
+          title: "Claiming LBD Unsuccessful",
           type: NotificationType.REWARD,
           severity: NotificationSeverity.DANGER,
         },
@@ -217,7 +217,7 @@ const Onboarding = () => {
                   </div>
                   <div className="flex gap-x-1 items-center">
                     <CheckCircleIcon className="h-5 w-5" />
-                    <span className="text-sm">Get SHM tokens for staking.</span>
+                    <span className="text-sm">Get LBD tokens for staking.</span>
                   </div>
                   <div className="flex gap-x-1 items-center">
                     <CheckCircleIcon className="h-5 w-5" />
@@ -366,7 +366,7 @@ const Onboarding = () => {
                     </div>
                     <div className="flex flex-col w-full pl-7">
                       <span className="text-gray-600 text-sm">
-                        Claim SHM tokens from Liberdus faucet as a reward.
+                        Claim LBD tokens from Liberdus faucet as a reward.
                       </span>
                       <div className="flex flex-col mt-4 pr-5">
                         {tokenClaimPhase === 0 && (
@@ -388,7 +388,7 @@ const Onboarding = () => {
                                   setTokenClaimPhase(2);
                                 }}
                               >
-                                Claim SHM
+                                Claim LBD
                               </button>
                             </div>
                             <div className="basis-0 grow ml-2">
@@ -405,7 +405,7 @@ const Onboarding = () => {
                                   setTokenClaimPhase(2);
                                 }}
                               >
-                                I already have SHM to stake
+                                I already have LBD to stake
                               </button>
                             </div>
                           </div>
@@ -418,7 +418,7 @@ const Onboarding = () => {
                             <div className="spinner flex items-center justify-center mr-3">
                               <div className="border-2 border-black border-b-white rounded-full h-3.5 w-3.5"></div>
                             </div>{" "}
-                            Claiming SHM
+                            Claiming LBD
                           </button>
                         )}
                         {accountBalance !== "" && (
@@ -440,11 +440,11 @@ const Onboarding = () => {
                       <div className="flex items-center gap-x-2">
                         <CheckCircleIcon className="bg-white h-6 w-6 rounded-full text-xs text-green-700" />
                         <span className="font-semibold flex justify-between items-center w-full pr-5">
-                          Successfully claimed SHM
+                          Successfully claimed LBD
                         </span>
                       </div>
                       <span className="text-gray-600 text-sm ml-8">
-                        You&apos;ve successfully claimed your reward SHM tokens.
+                        You&apos;ve successfully claimed your reward LBD tokens.
                       </span>
                     </>
                   )}
@@ -537,7 +537,7 @@ const Onboarding = () => {
                 )}
               </div>
 
-              {/* Step 4: Stake SHM */}
+              {/* Step 4: Stake LBD */}
               <div className="bg-white w-full border p-3 shadow-md rounded-sm">
                 {(!isConnected || tokenClaimPhase < 2 || !isNodeStarted) && (
                   <div className="flex flex-col">
@@ -547,7 +547,7 @@ const Onboarding = () => {
                       </span>
 
                       <span className="font-medium text-gray-400">
-                        Stake your SHM
+                        Stake your LBD
                       </span>
                     </div>
                   </div>
@@ -563,12 +563,12 @@ const Onboarding = () => {
                         </span>
 
                         <span className="font-semibold w-full flex items-center justify-between pr-5">
-                          Stake your SHM
+                          Stake your LBD
                         </span>
                       </div>
                       <div className="flex flex-col w-full pl-7">
                         <span className="font-light text-sm text-gray-600">
-                          Stake SHM to become a validator & earn rewards.
+                          Stake LBD to become a validator & earn rewards.
                         </span>
                         <div className="flex flex-col mt-4 pr-5">
                           <div className="flex justify-between gap-x-2 bg-white">
@@ -632,7 +632,7 @@ const Onboarding = () => {
                               >
                                 <span>Minimum stake requirement: </span>
                                 <span className="font-semibold">
-                                  {minimumStakeRequirement.toFixed(0)} SHM
+                                  {minimumStakeRequirement.toFixed(0)} LBD
                                 </span>
                               </div>
                               {accountBalance !== "" && (
@@ -657,11 +657,11 @@ const Onboarding = () => {
                       <div className="flex items-center gap-x-2 max-w-xl">
                         <CheckCircleIcon className="bg-white h-6 w-6 rounded-full text-xs text-green-700" />
                         <span className="font-semibold flex justify-between items-center w-full pr-5">
-                          Successfully staked SHM
+                          Successfully staked LBD
                         </span>
                       </div>
                       <span className="text-gray-600 text-sm ml-8">
-                        You&apos;ve successfully staked {stakedAmount} SHM.
+                        You&apos;ve successfully staked {stakedAmount} LBD.
                       </span>
                     </>
                   )}

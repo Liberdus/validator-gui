@@ -1,6 +1,6 @@
 import Image from "next/image";
-import logo from "../../assets/black-logo.svg";
-import minimalLogo from "../../assets/minimal-black-logo.svg";
+import logo from "../../assets/liberdus.png";
+import minimalLogo from "../../assets/liberdus.png";
 
 type LogoProps = {
   className?: string;

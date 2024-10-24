@@ -35,7 +35,7 @@ export const UnstakeSuccessModal = ({
         <span className="text-sm bodyFg text-center">
           You&apos;ve successfully unstaked{" "}
           <span className="font-semibold">{(stake + rewards).toFixed(2)}</span>{" "}
-          SHM into your wallet.
+          LBD into your wallet.
         </span>
         <hr className="mt-1 w-full" />
         <button
