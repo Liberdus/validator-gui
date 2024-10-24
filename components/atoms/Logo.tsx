@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "../../assets/liberdus.png";
+import logo from "../../assets/liberdus-with-text.png";
 import minimalLogo from "../../assets/liberdus.png";
 
 type LogoProps = {
@@ -15,7 +15,7 @@ export const Logo: React.FC<LogoProps> = ({
     <>
       {!isMinimalLogo && (
         <Image
-          className={className || "w-32"}
+          className={className || "w-16"}
           src={logo}
           alt="Liberdus Logo"
           priority
