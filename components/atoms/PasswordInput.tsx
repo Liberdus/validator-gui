@@ -32,7 +32,7 @@ export const PasswordInput = ({
       <div className="w-full flex justify-between">
         <input
           type={isInputVisible ? "text" : "password"}
-          placeholder="Enter Password Here"
+          placeholder="Password"
           className="outline-none flex-1 bg-white"
           {...inputProps}
         />
