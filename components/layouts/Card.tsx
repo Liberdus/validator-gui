@@ -6,7 +6,7 @@ type CardProps = {
 
 export const Card = ({ children }: CardProps) => {
   return (
-    <div className="w-full h-full bg-white shadow border border-gray-200 rounded">
+    <div className="w-full h-full bg-white shadow-lg border border-amber-500 rounded-xl">
       {children}
     </div>
   );
