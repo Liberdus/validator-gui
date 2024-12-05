@@ -45,8 +45,8 @@ export const LogFrame = ({ logId }: LogFrameProps) => {
   };
 
   return (
-    <div className="w-full flex flex-col my-1 border border-bodyFg shadow">
-      <div className="flex justify-between p-5 border-b border-bodyFg bg-white rounded">
+    <div className="w-full flex flex-col my-1 border border-bodyFg shadow-md rounded-lg">
+      <div className="flex justify-between p-5 border-b border-bodyFg bg-white rounded-lg">
         <div className="flex gap-x-4 items-center">
           <span className="font-semibold text-md">{logId}</span>
           <div className="flex gap-x-3 items-center">
@@ -83,7 +83,7 @@ export const LogFrame = ({ logId }: LogFrameProps) => {
         <div>
           <textarea
             disabled
-            className="w-full rounded-b bg-white text-sm bodyFg max-h-96 overflow-scroll px-7 min-h-[16rem]"
+            className="w-full rounded-b bg-white text-sm bodyFg max-h-96 overflow-scroll px-7 min-h-[16rem] font-mono"
           >
             {logContent}
           </textarea>
