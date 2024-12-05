@@ -106,7 +106,7 @@ export const InformationPopupsDisplay = () => {
   return (
     <div className="flex flex-col gap-y-3">
       {showOnboardingPrompt && (
-        <div className="w-full h-full border shadow rounded p-4 bg-white max-md:hidden">
+        <div className="w-full h-full border shadow rounded-xl p-4 bg-gradient-to-br from-amber-200 to-amber-400 max-md:hidden border-amber-500">
           <div className="flex">
             <div className="flex flex-col grow gap-x-3">
               <span className="text-sm font-semibold">
@@ -117,14 +117,6 @@ export const InformationPopupsDisplay = () => {
                   Start your node, add stake and begin validating.
                 </span>
               </div>
-            </div>
-            <div className="flex flex-col justify-center items-center max-w-[5rem] w-full mr-6">
-              <div
-                className="fill-bg h-full w-full"
-                style={{
-                  backgroundImage: `url(${greyLogo.src})`,
-                }}
-              ></div>
             </div>
             <div className="flex flex-col justify-start">
               <XMarkIcon
@@ -142,7 +134,7 @@ export const InformationPopupsDisplay = () => {
         <span className="text-4xl font-semibold">Welcome Validator!</span>
       )}
       {showValidatorUpdatePrompt && (
-        <div className="w-full h-full shadow border border-attentionBorder bg-attentionBg rounded p-4">
+        <div className="w-full h-full shadow border border-attentionBorder bg-attentionBg rounded-xl p-4">
           <div className="flex flex-col">
             <div className="flex flex-col">
               <span className="font-semibold text-xs">
@@ -168,7 +160,7 @@ export const InformationPopupsDisplay = () => {
                   setShowValidatorUpdatePrompt(false);
                 }}
                 target="_blank"
-                className="flex justify-center items-center bg-white border border-gray-300 rounded text-xs font-semibold w-24 py-1"
+                className="flex justify-center items-center bg-white border border-gray-300 rounded-xl text-xs font-semibold w-24 py-1"
               >
                 Update
               </Link>
@@ -177,7 +169,7 @@ export const InformationPopupsDisplay = () => {
         </div>
       )}
       {showGuiUpdatePrompt && (
-        <div className="w-full h-full shadow border border-attentionBorder bg-attentionBg rounded p-4">
+        <div className="w-full h-full shadow border border-attentionBorder bg-attentionBg rounded-xl p-4">
           <div className="flex flex-col">
             <div className="flex flex-col">
               <span className="font-semibold text-xs">
@@ -203,7 +195,7 @@ export const InformationPopupsDisplay = () => {
                   setShowGuiUpdatePrompt(false);
                 }}
                 target="_blank"
-                className="flex justify-center items-center bg-white border border-gray-300 rounded text-xs font-semibold w-24 py-1"
+                className="flex justify-center items-center bg-white border border-gray-300 rounded-xl text-xs font-semibold w-24 py-1"
               >
                 Update
               </Link>
@@ -212,7 +204,7 @@ export const InformationPopupsDisplay = () => {
         </div>
       )}
       {showValidatorUpdated && (
-        <div className="w-full h-full shadow border border-successBorder bg-successBg rounded p-4">
+        <div className="w-full h-full shadow border border-successBorder bg-successBg rounded-xl p-4">
           <div className="flex flex-col">
             <div className="flex flex-col">
               <span className="font-semibold text-xs">
@@ -237,7 +229,7 @@ export const InformationPopupsDisplay = () => {
         </div>
       )}
       {showGuiUpdated && (
-        <div className="w-full h-full shadow border border-successBorder bg-successBg rounded p-4">
+        <div className="w-full h-full shadow border border-successBorder bg-successBg rounded-xl p-4">
           <div className="flex flex-col">
             <div className="flex flex-col">
               <span className="font-semibold text-xs">
