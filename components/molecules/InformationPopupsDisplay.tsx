@@ -109,18 +109,18 @@ export const InformationPopupsDisplay = () => {
         <div className="w-full h-full border shadow rounded-xl p-4 bg-gradient-to-br from-amber-200 to-amber-400 max-md:hidden border-amber-500">
           <div className="flex">
             <div className="flex flex-col grow gap-x-3">
-              <span className="text-sm font-semibold">
+              <span className="text-md font-semibold">
                 Finish setting up your node
               </span>
               <div className="flex justify-start mt-3">
-                <span className="bodyFg text-xs font-light">
+                <span className="bodyFg text-sm">
                   Start your node, add stake and begin validating.
                 </span>
               </div>
             </div>
             <div className="flex flex-col justify-start">
               <XMarkIcon
-                className="h-3 w-3 cursor-pointer"
+                className="h-8 w-8 p-2 m-[-0.5rem] cursor-pointer rounded-lg hover:bg-black/10"
                 onClick={() => {
                   localStorage.setItem(onboardingCompletedKey, "true");
                   setShowOnboardingPrompt(false);
