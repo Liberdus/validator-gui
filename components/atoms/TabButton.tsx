@@ -9,7 +9,7 @@ type TabButtonProps = {
 export const TabButton = ({ toRef, preClick, text }: TabButtonProps) => {
   return (
     <button
-      className="p-2 rounded hover:bg-gray-100 hover:font-semibold text-sm ease-in-out duration-200"
+      className="p-2 px-4 rounded-lg hover:bg-gray-100 hover:font-heavy text-sm ease-in-out duration-200"
       onClick={() => {
         if (preClick) {
           preClick();

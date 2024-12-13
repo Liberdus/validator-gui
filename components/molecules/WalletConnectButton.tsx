@@ -11,7 +11,8 @@ export const WalletConnectButton = ({
   label,
   toShowAddress = false,
 }: WalletConnectButtonProps) => {
-  const buttonClassName = "w-full px-3 py-2 text-sm max-w-md border rounded-md";
+  const buttonClassName =
+    "w-full px-3 py-2 text-sm max-w-md text-white font-bold rounded-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700";
   return (
     <ConnectButton.Custom>
       {({
@@ -48,7 +49,7 @@ export const WalletConnectButton = ({
                   <button
                     onClick={openConnectModal}
                     type="button"
-                    className={"bg-primary text-white " + buttonClassName}
+                    className={"text-black " + buttonClassName}
                   >
                     {label || "Connect Wallet"}
                   </button>

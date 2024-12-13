@@ -88,7 +88,7 @@ export const RewardsCard = () => {
           <div>
             <button
               className={
-                `border border-gray-400 mt-3 px-3 py-1 text-sm rounded ` +
+                `border border-gray-400 mt-3 px-3 py-1 text-sm rounded-lg ` +
                 (canRedeem
                   ? "text-primary"
                   : `text-gray-400 ${
@@ -121,9 +121,6 @@ export const RewardsCard = () => {
               Redeem Rewards
             </button>
           </div>
-        </div>
-        <div className="w-full max-w-[8rem] max-md:hidden">
-          <BgImage src={rewardsCardBg} alt="rewards-card-bg" />
         </div>
       </div>
     </Card>

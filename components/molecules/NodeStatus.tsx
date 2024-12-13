@@ -442,7 +442,7 @@ export const NodeStatus = ({ isWalletConnected, address }: NodeStatusProps) => {
         </div>
         <div className="flex flex-col text-subtleFg">
           <div
-            className={`flex items-center gap-x-2 p-3 font-medium text-lg bg-${titleBgColor}`}
+            className={`flex items-center gap-x-2 p-3 font-medium rounded-tl-xl rounded-tr-xl text-lg bg-${titleBgColor}`}
           >
             <span className={`text-${titleTextColor}`}>{title}</span>
             <span
@@ -543,12 +543,12 @@ export const NodeStatus = ({ isWalletConnected, address }: NodeStatusProps) => {
                       nodeStatus?.state !== "waiting-for-network"
                     }
                     className={
-                      "border-bodyFg border text-sm px-3 py-2 rounded font-semibold " +
+                      "text-sm px-3 py-2 rounded-full font-bold " +
                       (nodeStatus?.state !== "standby" &&
                       nodeStatus?.state !== "need-stake" &&
                       nodeStatus?.state !== "waiting-for-network"
-                        ? "text-gray-400"
-                        : "text-dangerFg")
+                        ? "text-gray-500 bg-gray-200"
+                        : "text-white bg-red-600 hover:bg-red-500 active:bg-red-700")
                     }
                     onClick={() => {
                       stopNode();
@@ -559,7 +559,7 @@ export const NodeStatus = ({ isWalletConnected, address }: NodeStatusProps) => {
                 )}
                 {isNodeStopped && !isLoading && (
                   <button
-                    className="text-white bg-primary text-sm px-3 py-2 rounded"
+                    className="text-sm px-3 py-2 text-white font-bold rounded-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700"
                     onClick={() => {
                       startNode();
                     }}
@@ -569,11 +569,11 @@ export const NodeStatus = ({ isWalletConnected, address }: NodeStatusProps) => {
                 )}
                 {isLoading && (
                   <button
-                    className="border border-gray-300 rounded px-3 py-2 flex items-center justify-center text-sm font-medium"
+                    className="rounded-full px-3 py-2 flex items-center justify-center text-sm font-bold text-gray-500 bg-gray-200"
                     disabled={true}
                   >
                     <div className="spinner flex items-center justify-center mr-3">
-                      <div className="border-2 border-black border-b-white rounded-full h-3.5 w-3.5"></div>
+                      <div className="border-2 border-gray-500 border-b-gray-200 rounded-full h-3.5 w-3.5"></div>
                     </div>{" "}
                     Confirming
                   </button>
