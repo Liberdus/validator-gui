@@ -131,10 +131,12 @@ export const InformationPopupsDisplay = () => {
         </div>
       )}
       {!showOnboardingPrompt && (
-        <span className="text-4xl font-semibold">Welcome Validator!</span>
+        <span className="text-4xl font-semibold mt-16">
+          Welcome, validator!
+        </span>
       )}
       {showValidatorUpdatePrompt && (
-        <div className="w-full h-full shadow border border-attentionBorder bg-attentionBg rounded-xl p-4">
+        <div className="w-full h-full border border-attentionBorder bg-attentionBg rounded-xl p-4">
           <div className="flex flex-col">
             <div className="flex flex-col">
               <span className="font-semibold text-xs">
@@ -169,7 +171,7 @@ export const InformationPopupsDisplay = () => {
         </div>
       )}
       {showGuiUpdatePrompt && (
-        <div className="w-full h-full shadow border border-attentionBorder bg-attentionBg rounded-xl p-4">
+        <div className="w-full h-full border border-attentionBorder bg-attentionBg rounded-xl p-4">
           <div className="flex flex-col">
             <div className="flex flex-col">
               <span className="font-semibold text-xs">
@@ -204,7 +206,7 @@ export const InformationPopupsDisplay = () => {
         </div>
       )}
       {showValidatorUpdated && (
-        <div className="w-full h-full shadow border border-successBorder bg-successBg rounded-xl p-4">
+        <div className="w-full h-full border border-successBorder bg-successBg rounded-xl p-4">
           <div className="flex flex-col">
             <div className="flex flex-col">
               <span className="font-semibold text-xs">
@@ -229,7 +231,7 @@ export const InformationPopupsDisplay = () => {
         </div>
       )}
       {showGuiUpdated && (
-        <div className="w-full h-full shadow border border-successBorder bg-successBg rounded-xl p-4">
+        <div className="w-full h-full border border-successBorder bg-successBg rounded-xl p-4">
           <div className="flex flex-col">
             <div className="flex flex-col">
               <span className="font-semibold text-xs">

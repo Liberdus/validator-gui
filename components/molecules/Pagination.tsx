@@ -71,8 +71,8 @@ export const Pagination = ({
         return (
           <button
             className={
-              "px-2 py-1 text-xs rounded ease-in-out duration-100 " +
-              (isCurPage ? "bg-primary text-white" : "hover:bg-gray-300")
+              "w-8 h-8 text-xs rounded-full ease-in-out duration-100 " +
+              (isCurPage ? "bg-blue-700 text-white" : "hover:bg-gray-300")
             }
             onClick={async () => {
               await onPageClick(page);
@@ -89,7 +89,7 @@ export const Pagination = ({
       )}
       {rightExpansionEnabled && (
         <button
-          className="px-2 py-1 text-xs rounded hover:bg-gray-300 ease-in-out duration-100"
+          className="w-8 h-8 text-xs rounded-full hover:bg-gray-300 ease-in-out duration-100"
           onClick={async () => {
             await onPageClick(totalPages);
             setCurPage(totalPages);
@@ -100,8 +100,8 @@ export const Pagination = ({
       )}
       <ChevronRightIcon
         className={
-          "h-4 w-4 " +
-          (curPage < totalPages ? "cursor-pointer" : "text-gray-300")
+          "h-8 w-8 p-2 rounded-full " +
+          (curPage < totalPages ? "cursor-pointer hover:bg-gray-300" : "text-gray-300")
         }
         onClick={async () => {
           if (curPage < totalPages) {

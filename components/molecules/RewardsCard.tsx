@@ -88,10 +88,10 @@ export const RewardsCard = () => {
           <div>
             <button
               className={
-                `border border-gray-400 mt-3 px-3 py-1 text-sm rounded-lg ` +
+                `mt-3 px-4 py-1 text-sm rounded-full font-bold ` +
                 (canRedeem
-                  ? "text-primary"
-                  : `text-gray-400 ${
+                  ? "bg-blue-700 text-white"
+                  : `bg-gray-200 text-gray-500 ${
                       nodeStatus?.state === "active" ? "tooltip" : ""
                     }`)
               }

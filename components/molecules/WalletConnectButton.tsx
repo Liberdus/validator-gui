@@ -12,7 +12,7 @@ export const WalletConnectButton = ({
   toShowAddress = false,
 }: WalletConnectButtonProps) => {
   const buttonClassName =
-    "w-full px-3 py-2 text-sm max-w-md text-white font-bold rounded-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700";
+    "w-full px-4 py-2 text-sm max-w-md text-white font-bold rounded-full bg-blue-700 hover:bg-blue-600 active:bg-blue-800";
   return (
     <ConnectButton.Custom>
       {({
