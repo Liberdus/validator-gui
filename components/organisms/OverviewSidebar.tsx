@@ -22,7 +22,7 @@ export const OverviewSidebar: React.FC = () => {
     version?.runnningValidatorVersion !== version?.activeLiberdusVersion;
 
   return (
-    <div className="flex flex-col gap-y-16 scroll-smooth amber-100">
+    <div className="flex flex-col gap-y-16 scroll-smooth amber-100 pt-8">
       <div className="flex flex-col gap-y-2">
         <span className="font-semibold">Node Status</span>
         <div className="flex flex-col">

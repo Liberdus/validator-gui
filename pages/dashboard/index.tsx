@@ -172,11 +172,7 @@ const Dashboard = () => {
                       </section>
 
                       {/* Performance */}
-                      <section
-                        id="performance"
-                        ref={performanceSectionRef}
-                        className="mb-32"
-                      >
+                      <section id="performance" ref={performanceSectionRef}>
                         <div className="flex items-center gap-x-3">
                           <span className="font-medium text-base mb-1">
                             Performance
@@ -329,7 +325,7 @@ Dashboard.getLayout = function getLayout(page: ReactElement) {
       <Head>
         <title>Liberdus Dashboard</title>
       </Head>
-      <div className="bg-gray-100 h-full relative">{page}</div>
+      <div className="bg-gray-100 h-full relative pb-32">{page}</div>
     </>
   );
 };

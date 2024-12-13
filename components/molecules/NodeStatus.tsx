@@ -1,8 +1,4 @@
-import {
-  ChevronDownIcon,
-  ChevronUpIcon,
-  InformationCircleIcon,
-} from "@heroicons/react/24/outline";
+import { InformationCircleIcon } from "@heroicons/react/24/outline";
 import { Card } from "../layouts/Card";
 import { useEffect, useState } from "react";
 import { useNodeStatus } from "../../hooks/useNodeStatus";
@@ -543,7 +539,7 @@ export const NodeStatus = ({ isWalletConnected, address }: NodeStatusProps) => {
                       nodeStatus?.state !== "waiting-for-network"
                     }
                     className={
-                      "text-sm px-3 py-2 rounded-full font-bold " +
+                      "text-sm px-4 py-2 rounded-full font-bold " +
                       (nodeStatus?.state !== "standby" &&
                       nodeStatus?.state !== "need-stake" &&
                       nodeStatus?.state !== "waiting-for-network"
@@ -559,7 +555,7 @@ export const NodeStatus = ({ isWalletConnected, address }: NodeStatusProps) => {
                 )}
                 {isNodeStopped && !isLoading && (
                   <button
-                    className="text-sm px-3 py-2 text-white font-bold rounded-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700"
+                    className="text-sm px-4 py-2 text-white font-bold rounded-full bg-blue-700 hover:bg-blue-600 active:bg-blue-800"
                     onClick={() => {
                       startNode();
                     }}
@@ -569,7 +565,7 @@ export const NodeStatus = ({ isWalletConnected, address }: NodeStatusProps) => {
                 )}
                 {isLoading && (
                   <button
-                    className="rounded-full px-3 py-2 flex items-center justify-center text-sm font-bold text-gray-500 bg-gray-200"
+                    className="rounded-full px-4 py-2 flex items-center justify-center text-sm font-bold text-gray-500 bg-gray-200"
                     disabled={true}
                   >
                     <div className="spinner flex items-center justify-center mr-3">

@@ -45,8 +45,8 @@ export const LogFrame = ({ logId }: LogFrameProps) => {
   };
 
   return (
-    <div className="w-full flex flex-col my-1 border border-bodyFg shadow-md rounded-lg">
-      <div className="flex justify-between p-5 border-b border-bodyFg bg-white rounded-lg">
+    <div className="w-full flex flex-col my-1 rounded-xl">
+      <div className="flex justify-between p-6 bg-white rounded-xl">
         <div className="flex gap-x-4 items-center">
           <span className="font-semibold text-md">{logId}</span>
           <div className="flex gap-x-3 items-center">

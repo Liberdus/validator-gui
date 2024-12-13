@@ -40,8 +40,8 @@ export const ForceRemoveStake = ({
             <div className="flex w-full justify-end max-md:mt-3">
               <button
                 className={
-                  "h-10 border-gray-400 border text-sm px-3 rounded font-semibold " +
-                  (isEnabled ? "text-dangerFg" : "text-gray-400")
+                  "h-10 border-gray-400 border text-sm px-4 rounded-full font-bold " +
+                  (isEnabled ? "text-red-600" : "text-gray-400")
                 }
                 disabled={!isEnabled}
                 onClick={() => {
