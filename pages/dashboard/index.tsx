@@ -65,7 +65,7 @@ const Dashboard = () => {
       {!isMobile && (
         <>
           {/* navbar */}
-          <nav className="px-12 shadow fixed top-0 bg-white w-full z-20">
+          <nav className="px-12 fixed top-0 bg-gray-50 w-full z-20 border border-b-gray-200">
             <div className="flex flex-col w-full">
               <div className="flex justify-between py-3 w-full">
                 <Logo className="w-32" />
@@ -102,7 +102,7 @@ const Dashboard = () => {
                   <ToastWindow viewLogsOnClick={setToLogsDisplay} />
                 </div>
               </div>
-              <div className="flex justify-start gap-x-3 text-black text-xs mb-2">
+              <div className="flex justify-start gap-x-3 text-black text-xs mb-2 font-bold">
                 {contentPane === Content.MAIN && (
                   <>
                     <TabButton
@@ -172,7 +172,11 @@ const Dashboard = () => {
                       </section>
 
                       {/* Performance */}
-                      <section id="performance" ref={performanceSectionRef}>
+                      <section
+                        id="performance"
+                        ref={performanceSectionRef}
+                        className="mb-32"
+                      >
                         <div className="flex items-center gap-x-3">
                           <span className="font-medium text-base mb-1">
                             Performance
@@ -181,7 +185,6 @@ const Dashboard = () => {
                         <PerformanceDisplay />
                       </section>
                     </div>
-                    <BgImage src={dashboardBg} alt="dashboard-bg" />
                   </>
                 )}
                 {contentPane === Content.LOGS && <LogsDisplay />}
@@ -189,7 +192,7 @@ const Dashboard = () => {
               </div>
 
               {/* overview sidebar */}
-              <div className="max-w-lg h-screen w-full px-12 pt-32 bg-white fixed right-0 border overflow-scroll hidden-scrollar scroll-smooth pb-48 max-lg:max-w-md max-md:max-w-sm max-sm:max-w-xs">
+              <div className="max-w-lg h-screen w-full px-12 pt-32 bg-gray-50 fixed right-0 border overflow-scroll hidden-scrollar scroll-smooth pb-48 max-lg:max-w-md max-md:max-w-sm max-sm:max-w-xs">
                 <OverviewSidebar />
               </div>
             </div>
@@ -309,8 +312,6 @@ const Dashboard = () => {
                     <PerformanceDisplay />
                   </section>
                 </div>
-                {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
-                <BgImage src={dashboardBg} alt="dashboard-bg" />
               </>
             )}
             {contentPane === Content.SETTINGS && <SettingsDisplay />}
@@ -325,10 +326,10 @@ const Dashboard = () => {
 Dashboard.getLayout = function getLayout(page: ReactElement) {
   return (
     <>
-      <Head >
+      <Head>
         <title>Liberdus Dashboard</title>
       </Head>
-      <div className="bg-[$FAFAFA] relative">{page}</div>
+      <div className="bg-gray-100 h-full relative">{page}</div>
     </>
   );
 };

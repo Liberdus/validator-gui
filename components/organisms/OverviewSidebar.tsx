@@ -22,10 +22,10 @@ export const OverviewSidebar: React.FC = () => {
     version?.runnningValidatorVersion !== version?.activeLiberdusVersion;
 
   return (
-    <div className="flex flex-col gap-y-16 scroll-smooth">
+    <div className="flex flex-col gap-y-16 scroll-smooth amber-100">
       <div className="flex flex-col gap-y-2">
         <span className="font-semibold">Node Status</span>
-        <div className="flex flex-col shadow border border-gray-200 rounded">
+        <div className="flex flex-col">
           <div className="z-30">
             <NodeStatus
               isWalletConnected={isConnected}
@@ -39,7 +39,7 @@ export const OverviewSidebar: React.FC = () => {
       </div>
       <div className="flex flex-col gap-y-2">
         <span className="font-semibold">Your Stake</span>
-        <div className="flex flex-col shadow border border-gray-200 rounded">
+        <div className="flex flex-col">
           <StakeDisplay />
         </div>
       </div>
