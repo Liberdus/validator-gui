@@ -33,7 +33,7 @@ export const LogsDisplay = () => {
               <span className="font-semibold text-md">All Logs</span>
               <div className="flex items-center gap-x-3">
                 <span
-                  className="font-semibold text-md cursor-pointer"
+                  className="font-semibold text-sm cursor-pointer"
                   onClick={() => {
                     clearAllLogs();
                   }}
@@ -41,13 +41,13 @@ export const LogsDisplay = () => {
                   Clear All<span className="max-md:hidden"> Logs</span>
                 </span>
                 <button
-                  className="border border-gray-300 bg-white px-4 py-1 rounded flex items-center gap-x-2"
+                  className="bg-blue-700 text-white px-4 py-2 rounded-full flex items-center gap-x-2"
                   onClick={() => {
                     downloadAllLogs();
                   }}
                 >
-                  <ArrowDownTrayIcon className="w-4 h-4 text-black stroke-2" />
-                  <span className="text-md font-semibold">
+                  <ArrowDownTrayIcon className="w-4 h-4 text-white stroke-2" />
+                  <span className="text-sm font-bold">
                     Download All<span className="max-md:hidden"> Logs</span>
                   </span>
                 </button>

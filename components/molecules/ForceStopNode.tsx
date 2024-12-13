@@ -39,8 +39,8 @@ export const ForceStopNode = ({
               {!isLoading && (
                 <button
                   className={
-                    "h-10 border-gray-400 border text-sm px-3 rounded font-semibold text-dangerFg " +
-                    (isEnabled ? "" : "text-gray-400")
+                    "h-10 border-gray-400 border text-sm px-4 rounded-full font-bold " +
+                    (isEnabled ? "text-red-600" : "text-gray-400")
                   }
                   disabled={!isEnabled}
                   onClick={() => {
