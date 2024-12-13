@@ -20,7 +20,7 @@ export const UsageBar = ({ usage, className }: UsageBarProps) => {
     <div
       className={
         className ||
-        `w-full h-2 ${
+        `rounded-e-full w-full h-2 ${
           usageType === "neutral"
             ? "bg-subtleBg"
             : usageType === "low"
@@ -30,7 +30,7 @@ export const UsageBar = ({ usage, className }: UsageBarProps) => {
       }
     >
       <div
-        className={`h-full ${
+        className={`rounded-full h-full ${
           usageType === "neutral"
             ? "bg-subtleFg"
             : usageType === "low"
