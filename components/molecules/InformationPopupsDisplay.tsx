@@ -106,7 +106,7 @@ export const InformationPopupsDisplay = () => {
   return (
     <div className="flex flex-col gap-y-3">
       {showOnboardingPrompt && (
-        <div className="w-full h-full border shadow rounded-xl p-4 bg-gradient-to-br from-amber-200 to-amber-400 max-md:hidden border-amber-500">
+        <div className="w-full h-full rounded-xl p-4 bg-amber-400 max-md:hidden">
           <div className="flex">
             <div className="flex flex-col grow gap-x-3">
               <span className="text-md font-semibold">

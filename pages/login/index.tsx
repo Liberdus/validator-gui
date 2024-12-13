@@ -41,7 +41,8 @@ const Login = () => {
           style={{
             backgroundImage: `url(${loginAsideBg.src})`,
             backgroundRepeat: "no-repeat",
-            backgroundSize: "fill",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         >
           <div className="flex flex-col items-center mb-20 ml-20 gap-y-8">
@@ -67,15 +68,18 @@ const Login = () => {
         </aside>
         <div className="flex basis-0 grow text-stone-500 rounded-xl text-sm h-full">
           <main className={`grow px-6 pt-24 md:p-20 h-full`}>
-            <div className="flex flex-col gap-y-8 h-full">
+            <div className="flex flex-col gap-y-4 h-full">
               <Logo className="w-40 mb-4" />
               <Title
-                text="Enter password to connect to the validator dashboard"
+                text="Welcome"
                 className={
                   GeistSans.className +
                   " text-3xl font-semibold text-gray-900 max-w-[400px]"
                 }
               />
+              <p className="text-md mb-4 ms-1">
+                Enter your password to acccess the validator dashboard
+              </p>
               <div className="flex flex-col justify-between h-full">
                 <LoginForm />
                 {!isMobile && (
