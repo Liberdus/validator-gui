@@ -86,7 +86,7 @@ export const ConfirmUnstakeModal = ({
             <div className="flex justify-between">
               <span className="bodyFg text-sm">Total unstake amount</span>
               <span className="text-sm font-semibold">
-                {(currentRewards + currentStake).toFixed(2)} LBD
+                {(currentRewards + currentStake).toFixed(2)} LIB
               </span>
             </div>
             <div className="flex justify-end w-full">
@@ -107,7 +107,7 @@ export const ConfirmUnstakeModal = ({
                   It is not recommended to force remove stake while validating.
                   You might lose{" "}
                   <span className="font-semibold">
-                    {currentRewards.toFixed(2)} LBD
+                    {currentRewards.toFixed(2)} LIB
                   </span>{" "}
                   earned in the current cycle.
                 </span>

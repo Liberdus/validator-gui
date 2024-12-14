@@ -35,12 +35,12 @@ export const ForceUnstakeSuccessModal = ({
         <span className="text-sm bodyFg text-center">
           You&apos;ve successfully unstaked{" "}
           <span className="font-semibold">{(stake + rewards).toFixed(2)}</span>{" "}
-          LBD into your wallet.
+          LIB into your wallet.
         </span>
         <hr className="mt-1 w-full" />
         <span className="text-sm text-dangerFg text-center">
           You lost{" "}
-          <span className="font-semibold">{rewards.toFixed(2)} LBD</span> earned
+          <span className="font-semibold">{rewards.toFixed(2)} LIB</span> earned
           during current stake due to force removal of stake.
         </span>
         <hr className="mt-1 w-full" />

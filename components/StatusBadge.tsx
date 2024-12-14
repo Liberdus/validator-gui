@@ -44,7 +44,7 @@ export default function StatusBadge({ status }: { status: string }) {
       case "syncing":
         return "Syncing";
       case "need-stake":
-        return "No LBD Staked";
+        return "No LIB Staked";
       case "waiting-for-network":
         return "Waiting for network";
       case "ready":

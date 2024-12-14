@@ -49,7 +49,7 @@ export const devnet: Chain = {
   nativeCurrency: {
     decimals: 18,
     name: "Liberdus",
-    symbol: "LBD",
+    symbol: "LIB",
   },
   rpcUrls: {
     default: { http: [RPC_URL] },

@@ -260,8 +260,8 @@ export default function Maintenance() {
                 <div className="bg-white text-stone-500	rounded-xl p-8 text-sm [&>*]:pb-2 flex flex-col flex-grow justify-center">
                   <div className="flex-grow" />
                   <div>
-                    <span className="font-semibold">LBD staked:</span>{" "}
-                    {stakeInfo?.stake ? stakeInfo.stake + " LBD" : "-"}
+                    <span className="font-semibold">LIB staked:</span>{" "}
+                    {stakeInfo?.stake ? stakeInfo.stake + " LIB" : "-"}
                   </div>
                   <div className="overflow-hidden text-ellipsis">
                     <span className="font-semibold">Stake address:</span>{" "}
@@ -270,7 +270,7 @@ export default function Maintenance() {
                   <div>
                     <span className="font-semibold">Stake requirement:</span>{" "}
                     {nodeStatus.stakeRequirement
-                      ? nodeStatus.stakeRequirement + " LBD"
+                      ? nodeStatus.stakeRequirement + " LIB"
                       : "-"}
                   </div>
                   <div className="flex-grow" />

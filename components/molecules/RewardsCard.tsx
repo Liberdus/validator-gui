@@ -64,7 +64,7 @@ export const RewardsCard = () => {
                   <span className="text-5xl mt-2">
                     {parseFloat(nodeStatus?.currentRewards || "0").toFixed(2)}{" "}
                   </span>
-                  <span>LBD</span>
+                  <span>LIB</span>
                   {/* <span className="text-xs leading-9 bodyFg">(~0.00$)</span> */}
                 </span>
                 <div className="text-xs flex justify-between w-full bodyFg">
@@ -82,7 +82,7 @@ export const RewardsCard = () => {
           <div className="flex justify-between">
             <span className="text-xs bodyFg">Total rewards earned</span>
             <span className="font-semibold text-xs">
-              {nodeStatus?.lifetimeEarnings || (0.0).toFixed(2)} LBD
+              {nodeStatus?.lifetimeEarnings || (0.0).toFixed(2)} LIB
             </span>
           </div>
           <div>

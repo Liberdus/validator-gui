@@ -89,7 +89,7 @@ export const getTitle = (state: NodeState) => {
       title = "Syncing";
       break;
     case NodeState.NEED_STAKE:
-      title = "No LBD Staked";
+      title = "No LIB Staked";
       break;
     case NodeState.WAITING_FOR_NETWORK:
       title = "Waiting for network";
