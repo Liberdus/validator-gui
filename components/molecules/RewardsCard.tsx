@@ -60,11 +60,11 @@ export const RewardsCard = () => {
           <div className="flex w-full">
             <div className="flex justify-between w-full">
               <div className="flex flex-col w-full gap-y-2">
-                <span className="font-semibold text-2xl flex gap-x-2">
-                  <span>
+                <span className="font-semibold text-2xl flex gap-x-2 items-baseline">
+                  <span className="text-5xl mt-2">
                     {parseFloat(nodeStatus?.currentRewards || "0").toFixed(2)}{" "}
-                    LBD
                   </span>
+                  <span>LBD</span>
                   {/* <span className="text-xs leading-9 bodyFg">(~0.00$)</span> */}
                 </span>
                 <div className="text-xs flex justify-between w-full bodyFg">
