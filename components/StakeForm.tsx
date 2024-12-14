@@ -190,13 +190,13 @@ export default function StakeForm({
           setData({ ...data, nominee: e.target.value.toLowerCase() })
         }
       />
-      <label className="block mt-4">Stake Amount (LBD)</label>
+      <label className="block mt-4">Stake Amount (LIB)</label>
       <input
         required
         type="text"
         name="stake"
         className="bg-white text-black p-3 mt-2 w-full border border-black"
-        placeholder="Stake Amount (LBD)"
+        placeholder="Stake Amount (LIB)"
         onChange={(e) => handleStakeChange(e)}
       />
       <div

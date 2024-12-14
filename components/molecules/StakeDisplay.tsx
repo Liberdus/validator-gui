@@ -66,11 +66,11 @@ export const StakeDisplay = () => {
             {parseFloat(
               nodeStatus?.lockedStake ? nodeStatus?.lockedStake : "0"
             ).toFixed(2)}{" "}
-            LBD
+            LIB
           </span>
           <div className="flex gap-x-1">
             <span className="font-light text-xs">Min. requirement: </span>
-            <span className="text-xs">{minimumStakeRequirement} LBD</span>
+            <span className="text-xs">{minimumStakeRequirement} LIB</span>
           </div>
         </div>
         <hr className="my-1 mx-3" />

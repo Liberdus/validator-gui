@@ -14,7 +14,7 @@ const getStatusUpdateText = (status: string) => {
       break;
     case "need-stake":
       statusUpdateText =
-        "Your node is on standby as you do not have any staked LBD. Please stake a minimum of 10 LBD to start validating.";
+        "Your node is on standby as you do not have any staked LIB. Please stake a minimum of 10 LIB to start validating.";
       break;
     case "waiting-for-network":
       statusUpdateText =
