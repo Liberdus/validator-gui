@@ -5,7 +5,7 @@ import { GeistSans } from "geist/font";
 import { authService } from "../../services/auth.service";
 import Head from "next/head";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
-import loginAsideBg from "../../assets/login-aside-bg.svg";
+import loginAsideBg from "../../assets/login-aside-bg.png";
 import mobileLoginBg from "../../assets/mobile-login-bg.svg";
 import { Logo } from "../../components/atoms/Logo";
 import { Title } from "../../components/atoms/Title";
@@ -66,7 +66,7 @@ const Login = () => {
             </div>
           </div>
         </aside>
-        <div className="flex basis-0 grow text-stone-500 rounded-xl text-sm h-full">
+        <div className="bg-gray-100 flex basis-0 grow text-stone-500 rounded-xl text-sm h-full">
           <main className={`grow px-6 pt-24 md:p-20 h-full`}>
             <div className="flex flex-col gap-y-4 h-full">
               <Logo className="w-40 mb-4" />

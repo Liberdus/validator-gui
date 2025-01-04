@@ -91,9 +91,9 @@ export const LoginForm: React.FC = () => {
                 disabled={formState.isSubmitting || !isInputActive}
                 className={
                   (isInputActive
-                    ? "bg-indigo-600 hover:bg-indigo-700"
-                    : "bg-gray-300") +
-                  " text-white text-sm font-semibold py-2 px-4 w-40 rounded-md flex justify-center ease-in-out duration-300 " +
+                    ? "bg-blue-700 hover:bg-blue-600 active:bg-blue-800"
+                    : "bg-gray-400") +
+                  " text-white text-sm font-bold py-2 px-4 w-40 rounded-full flex justify-center ease-in-out duration-300 " +
                   GeistSans.className
                 }
                 type="submit"
@@ -104,11 +104,11 @@ export const LoginForm: React.FC = () => {
           )}
           {formState.isSubmitting && (
             <button
-              className="border border-gray-300 rounded px-4 py-2 w-40 flex items-center justify-center text-sm font-medium"
+              className="rounded-full px-4 py-2 flex items-center justify-center text-sm font-bold text-gray-500 bg-gray-200"
               disabled={true}
             >
               <div className="spinner flex items-center justify-center mr-3">
-                <div className="border-2 border-black border-b-white rounded-full h-3.5 w-3.5"></div>
+                <div className="border-2 border-gray-500 border-b-gray-200 rounded-full h-3.5 w-3.5"></div>
               </div>{" "}
               Confirming
             </button>

@@ -10,7 +10,6 @@ type PasswordInputProps = {
 export const PasswordInput = ({
   inputProps,
   isInputActive,
-  setIsInputActive,
 }: PasswordInputProps) => {
   const [isInputVisible, setIsInputVisible] = useState(false);
 
@@ -25,7 +24,7 @@ export const PasswordInput = ({
   return (
     <div
       className={
-        "flex items-center py-2 px-3 rounded-md border border-b-2 bg-white " +
+        "flex items-center py-2 px-4 rounded-lg bg-white " +
         (isInputActive ? "border-b-indigo-500" : "")
       }
     >
