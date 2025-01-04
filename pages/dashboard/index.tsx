@@ -141,7 +141,7 @@ const Dashboard = () => {
           <div className="w-full flex flex-col text-black relative scroll-smooth">
             <div className="flex pr-[32rem] max-lg:pr-[26rem] max-md:pr-[24rem]">
               {/* dashboard metrics */}
-              <div className="grow h-screen pt-32 w-full flex flex-col justify-between">
+              <div className="grow min-h-screen py-32 w-full flex flex-col justify-between">
                 {contentPane === Content.MAIN && (
                   <>
                     <div className="px-16 flex flex-col gap-y-12">
@@ -325,7 +325,7 @@ Dashboard.getLayout = function getLayout(page: ReactElement) {
       <Head>
         <title>Liberdus Dashboard</title>
       </Head>
-      <div className="bg-gray-100 h-full relative pb-32">{page}</div>
+      <div className="bg-gray-100 min-h-screen relative pb-16">{page}</div>
     </>
   );
 };
