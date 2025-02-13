@@ -16,7 +16,7 @@ export const ToastWindow = ({
   }));
 
   return (
-    <div className="absolute top-19 max-md:w-full md:top-8 right-0 z-35">
+    <div className="w-96 absolute top-19 max-md:w-full md:top-8 right-0 z-35">
       {currentToast && (
         <ToastBox
           toast={currentToast}

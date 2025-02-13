@@ -296,7 +296,7 @@ const Onboarding = () => {
                       <div className="flex flex-col mt-4 pr-5">
                         <div className="flex">
                           <div className="basis-0 grow text-white">
-                            <WalletConnectButton label="Connect Wallet"></WalletConnectButton>
+                            <WalletConnectButton />
                           </div>
                           {isConnected && chainId !== CHAIN_ID && (
                             <div className="basis-0 grow">

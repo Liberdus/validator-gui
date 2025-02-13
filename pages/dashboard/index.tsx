@@ -1,13 +1,15 @@
 // src/pages/dashboard/index.tsx
-import { ArrowRightOnRectangleIcon, BellIcon } from "@heroicons/react/24/solid";
+import {
+  ArrowRightOnRectangleIcon,
+  BellIcon,
+  Cog6ToothIcon,
+} from "@heroicons/react/24/solid";
 import { Logo } from "../../components/atoms/Logo";
-import { Cog6ToothIcon } from "@heroicons/react/20/solid";
 import { WalletConnectButton } from "../../components/molecules/WalletConnectButton";
 import { ReactElement, useRef, useState } from "react";
 import { OverviewSidebar } from "../../components/organisms/OverviewSidebar";
 import { TabButton } from "../../components/atoms/TabButton";
 import Head from "next/head";
-import dashboardBg from "../../assets/dashboard-bg.webp";
 import notebookIcon from "../../assets/notebook-icon.svg";
 import { PerformanceDisplay } from "../../components/molecules/PerformanceDisplay";
 import { RewardsCard } from "../../components/molecules/RewardsCard";
@@ -27,7 +29,6 @@ import { MobileMenu } from "../../components/molecules/MobileMenu";
 import { authService } from "../../services/auth.service";
 import { useGlobals } from "../../utils/globals";
 import { InformationPopupsDisplay } from "../../components/molecules/InformationPopupsDisplay";
-import { BgImage } from "../../components/atoms/BgImage";
 
 enum Content {
   MAIN = "MAIN",
@@ -53,7 +54,7 @@ const Dashboard = () => {
     setContentPane(Content.LOGS);
   };
   const { isMobile } = useDevice();
-  const { isConnected } = useAccount();
+  useAccount();
   const { setShowModal, setContent } = useModalStore((state: any) => ({
     setShowModal: state.setShowModal,
     setContent: state.setContent,
@@ -69,7 +70,7 @@ const Dashboard = () => {
             <div className="flex flex-col w-full">
               <div className="flex justify-between py-3 w-full">
                 <Logo className="w-32" />
-                <div className="flex items-center gap-x-4 relative">
+                <div className="flex items-center gap-x-4 relative w-full place-content-end">
                   <div className="relative">
                     <BellIcon
                       className="w-5 h-5 text-black cursor-pointer"
@@ -90,10 +91,9 @@ const Dashboard = () => {
                     onClick={setToSettingsDisplay}
                     className="w-5 h-5 text-black bg-white cursor-pointer"
                   />
-                  <WalletConnectButton
-                    toShowAddress={true}
-                    label="Connect Wallet"
-                  ></WalletConnectButton>
+                  <div>
+                    <WalletConnectButton />
+                  </div>
                   <ArrowRightOnRectangleIcon
                     className="h-5 w-5 text-black cursor-pointer tooltip tooltip-bottom"
                     data-tip="Logout"
@@ -203,10 +203,7 @@ const Dashboard = () => {
               <div className="flex justify-between py-3 w-full items-center">
                 <Logo className="w-8" isMinimalLogo={true} />
                 <div className="flex items-center gap-x-3 relative">
-                  <WalletConnectButton
-                    toShowAddress={true}
-                    label="Connect Wallet"
-                  ></WalletConnectButton>
+                  <WalletConnectButton />
                   <BellIcon
                     className="w-5 h-5 text-black cursor-pointer"
                     onClick={() => {

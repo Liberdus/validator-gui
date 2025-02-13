@@ -171,10 +171,7 @@ export const StakeDisplay = () => {
                   </button>
                 </div>
               ) : (
-                <WalletConnectButton
-                  toShowAddress={false}
-                  label="Connect Wallet"
-                ></WalletConnectButton>
+                <WalletConnectButton />
               )}
             </div>
           </div>
