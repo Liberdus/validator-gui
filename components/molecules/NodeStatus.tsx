@@ -106,6 +106,15 @@ export const getTitle = (state: NodeState) => {
   return title;
 };
 
+export const getSubtitle = (state: NodeState) => {
+  switch (state) {
+    case NodeState.NEED_STAKE:
+      return "You need to stake LIB to join the Liberdus network";
+    default:
+      return undefined;
+  }
+};
+
 export const getTitleBgColor = (state: NodeState) => {
   switch (state) {
     case NodeState.ACTIVE:
@@ -217,6 +226,7 @@ export const NodeStatus = ({ isWalletConnected, address }: NodeStatusProps) => {
 
   const state: NodeState = getNodeState(nodeStatus);
   const title = getTitle(state);
+  const subtitle = getSubtitle(state);
   const titleBgColor = getTitleBgColor(state);
   const titleTextColor = getTitleTextColor(state);
 
@@ -438,19 +448,12 @@ export const NodeStatus = ({ isWalletConnected, address }: NodeStatusProps) => {
         </div>
         <div className="flex flex-col text-subtleFg">
           <div
-            className={`flex items-center gap-x-2 p-3 font-medium rounded-tl-xl rounded-tr-xl text-lg bg-${titleBgColor}`}
+            className={`flex flex-col items-start gap-x-2 p-3 rounded-tl-xl rounded-tr-xl bg-${titleBgColor}`}
           >
-            <span className={`text-${titleTextColor}`}>{title}</span>
-            <span
-              className="tooltip tooltip-right text-xs bodyFg font-light"
-              data-tip={
-                isWalletConnected
-                  ? statusTip.get(nodeStatus?.state || "stopped")
-                  : "Please connect your wallet to the Liberdus network"
-              }
-            >
-              <InformationCircleIcon className="h-4 w-4 stroke-2" />
+            <span className={`text-${titleTextColor} text-lg font-medium`}>
+              {title}
             </span>
+            <span className={`text-${titleTextColor} text-xs`}>{subtitle}</span>
           </div>
           <div className="flex flex-col p-3 gap-y-2">
             <div className="flex justify-between">
