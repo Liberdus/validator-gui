@@ -42,7 +42,7 @@ export const ToastBox = ({
   }, []);
 
   return (
-    <div className="border rounded shadow">
+    <div className="border rounded-xl shadow">
       <div className="flex p-4 dropdown-300 bg-white text-black min-w-[20rem]">
         <div className="flex justify-between w-full">
           <div className="flex gap-x-2">
