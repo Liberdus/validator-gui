@@ -92,7 +92,7 @@ const Dashboard = () => {
                     className="w-5 h-5 text-black bg-white cursor-pointer"
                   />
                   <div>
-                    <WalletConnectButton />
+                    <WalletConnectButton  />
                   </div>
                   <ArrowRightOnRectangleIcon
                     className="h-5 w-5 text-black cursor-pointer tooltip tooltip-bottom"

@@ -26,6 +26,8 @@ import {
   NotificationSeverity,
   NotificationType,
 } from "../../hooks/useNotificationsStore";
+import Image from "next/image";
+import encodeQR from "qr";
 
 const tokensClaimedByKey = "tokensClaimedBy";
 export const onboardingCompletedKey = "onboardingCompleted";
@@ -40,23 +42,27 @@ export const FAUCET_CLAIM_DOCS_URL =
 
 const Onboarding = () => {
   const [isNodeStarted, setIsNodeStarted] = useState(false);
-  const [accountBalance, setAccountBalance] = useState("");
-  const [chainId, setChainId] = useState(0);
+  const [accountBalance, setAccountBalance] = useState("1000");
+  const [chainId, setChainId] = useState(CHAIN_ID);
   const [tokenClaimPhase, setTokenClaimPhase] = useState(0); // 0: hasn't claimed yet, 1: initiated request, 2: has claimed
-  const { isConnected, address } = useAccount({
-    onConnect: async (args) => {
-      if (args?.address) {
-        const balance = await fetchBalance({
-          address: args?.address,
-          chainId: CHAIN_ID,
-        });
-        setAccountBalance(`${balance?.formatted} ${balance?.symbol}`);
-      }
-    },
-    onDisconnect: () => {
-      setAccountBalance("");
-    },
-  });
+  // const { isConnected, address } = useAccount({
+  //   onConnect: async (args) => {
+  //     if (args?.address) {
+  //       const balance = await fetchBalance({
+  //         address: args?.address,
+  //         chainId: CHAIN_ID,
+  //       });
+  //       setAccountBalance(`${balance?.formatted} ${balance?.symbol}`);
+  //     }
+  //   },
+  //   onDisconnect: () => {
+  //     setAccountBalance("");
+  //   },
+  // });
+  const isConnected = true;
+  const address = "address";
+  const [qrData, setQRData] = useState("");
+
   const [isStakingComplete, setIsStakingComplete] = useState(
     localStorage.getItem(onboardingCompletedKey) === "true"
   );
@@ -71,11 +77,11 @@ const Onboarding = () => {
     setTokenClaimPhase(claimantAddress === address ? 2 : 0);
   }, [address]);
 
-  const { chain } = useNetwork();
+  // const { chain } = useNetwork();
 
-  useEffect(() => {
-    setChainId(chain?.id || 0);
-  }, [chain?.id]);
+  // useEffect(() => {
+  //   setChainId(chain?.id || 0);
+  // }, [chain?.id]);
 
   const { switchNetwork } = useSwitchNetwork();
   const router = useRouter();
@@ -89,6 +95,16 @@ const Onboarding = () => {
       0
     );
   }, [nodeStatus?.stakeRequirement, nodeStatus?.lockedStake]);
+
+  useEffect(() => {
+    if (!nodeStatus?.nomineeAddress) return;
+    const nodeAddress = nodeStatus?.nomineeAddress || "";
+    const gifBytes = encodeQR(nodeAddress, "gif", { scale: 4 });
+    // Convert the raw bytes to a base64 data URL
+    const base64 = btoa(String.fromCharCode(...new Uint8Array(gifBytes)));
+    const dataUrl = "data:image/gif;base64," + base64;
+    setQRData(dataUrl);
+  }, [nodeStatus?.nomineeAddress]);
 
   const {
     sendTransaction,
@@ -276,7 +292,7 @@ const Onboarding = () => {
             </div>
             <div className="w-full max-w-xl flex flex-col items-start gap-y-3">
               {/* Step 1: Connect wallet */}
-              <div className="bg-white w-full border p-3 shadow-md rounded-sm">
+              {/* <div className="bg-white w-full border p-3 shadow-md rounded-sm">
                 {!(isConnected && chainId === CHAIN_ID) && (
                   <div className="flex flex-col">
                     <div className="flex items-center gap-x-2 max-w-xl">
@@ -350,7 +366,7 @@ const Onboarding = () => {
                     </span>
                   </>
                 )}
-              </div>
+              </div> */}
 
               {/* Step 2: Claim tokens */}
               <div className="bg-white w-full border p-3 shadow-md rounded-sm">
@@ -570,7 +586,7 @@ const Onboarding = () => {
                         <span className="font-light text-sm text-gray-600">
                           Stake LIB to become a validator & earn rewards.
                         </span>
-                        <div className="flex flex-col mt-4 pr-5">
+                        {/* <div className="flex flex-col mt-4 pr-5">
                           <div className="flex justify-between gap-x-2 bg-white">
                             <input
                               className="basis-0 grow bg-white border border-gray-300 shadow-sm rounded px-3 py-1"
@@ -643,6 +659,69 @@ const Onboarding = () => {
                                   </span>
                                 </div>
                               )}
+                            </div>
+                          </div>
+                        </div> */}
+                        <div className="flex flex-col mt-4 pr-5">
+                          <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <div className="flex justify-between items-center mb-2">
+                              <h3 className="text-sm font-medium text-gray-600">
+                                Your Node Address
+                              </h3>
+                              <button
+                                className="text-xs text-indigo-600 hover:text-indigo-800 flex items-center gap-1 transition-colors"
+                                onClick={() =>
+                                  navigator.clipboard.writeText(
+                                    nodeStatus?.nomineeAddress || ""
+                                  )
+                                }
+                              >
+                                <span>Copy</span>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  className="h-3 w-3"
+                                  viewBox="0 0 20 20"
+                                  fill="currentColor"
+                                >
+                                  <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
+                                  <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
+                                </svg>
+                              </button>
+                            </div>
+                            <div className="bg-gray-50 px-3 py-2 rounded border border-gray-200">
+                              <span className="font-mono text-sm text-gray-800 break-all">
+                                {nodeStatus?.nomineeAddress || "0x..."}
+                              </span>
+                            </div>
+                            <div className="flex justify-between items-center mt-4">
+                              <h3 className="text-sm font-medium text-gray-600">
+                                Minimum Stake Requirement
+                              </h3>
+                              <div className="flex items-baseline gap-x-1 ">
+                                <span className="text-l font-semibold text-indigo-600">
+                                  {minimumStakeRequirement.toFixed(0)}
+                                </span>
+                                <span className="text-gray-600 text-sm">
+                                  LIB
+                                </span>
+                              </div>
+                            </div>
+                            <div className="border-t border-gray-100 my-2"></div>
+                            {qrData != "" && (
+                              <div className="flex flex-col items-center mt-2">
+                                <span className="text-md font-semibold text-gray-600">
+                                  Scan with Liberdus Web Client
+                                </span>
+                                <Image
+                                  src={qrData}
+                                  width={120}
+                                  height={120}
+                                  alt="QR Code"
+                                />
+                              </div>
+                            )}
+                            <div className="basis-0 grow text-white mt-2">
+                              <WalletConnectButton stake={true} />
                             </div>
                           </div>
                         </div>

@@ -11,6 +11,9 @@ import { ClipboardIcon } from "../atoms/ClipboardIcon";
 import { MobileModalWrapper } from "../layouts/MobileModalWrapper";
 import { useAccountStakeInfo } from "../../hooks/useAccountStakeInfo";
 import { useSettings } from "../../hooks/useSettings";
+import Image from "next/image";
+import encodeQR from "qr";
+
 
 export const StakeDisplay = () => {
   const addressRef = useRef<HTMLSpanElement>(null);
@@ -27,6 +30,7 @@ export const StakeDisplay = () => {
     })
   );
   const [hasNodeStopped, setHasNodeStopped] = useState(false);
+  const [qrData, setQRData] = useState("");
 
   const minimumStakeRequirement = useMemo(() => {
     return Math.max(
@@ -43,6 +47,16 @@ export const StakeDisplay = () => {
       setHasNodeStopped(false);
     }
   }, [nodeStatus?.state]);
+
+  useEffect(() => {
+    if (!nodeStatus?.nomineeAddress) return;
+    const nodeAddress = nodeStatus?.nomineeAddress || "";
+    const gifBytes = encodeQR(nodeAddress, "gif", { scale: 4 });
+    // Convert the raw bytes to a base64 data URL
+    const base64 = btoa(String.fromCharCode(...new Uint8Array(gifBytes)));
+    const dataUrl = "data:image/gif;base64," + base64;
+    setQRData(dataUrl);
+  }, [nodeStatus?.nomineeAddress]);
 
   const { isStoppedForLongerThan15Minutes, remainingWaitTime } = useMemo(() => {
     if (!settings?.lastStopped) return { isStoppedForLongerThan15Minutes: false, remainingWaitTime: 0 };
@@ -75,18 +89,19 @@ export const StakeDisplay = () => {
         </div>
         <hr className="my-1 mx-3" />
         <div className="flex flex-col p-3 gap-y-2">
-          <span className="font-semibold text-sm">Stake Address</span>
+          <span className="font-semibold text-sm">Node Address</span>
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-x-1">
               <span className="font-light text-xs" ref={addressRef}>
-                {address}
+                {nodeStatus?.nomineeAddress?.slice(0, 20)}.....
+                {nodeStatus?.nomineeAddress?.slice(-20)}
               </span>
             </div>
             <button
               onClick={() => {
-                if (addressRef.current) {
+                if (nodeStatus?.nomineeAddress) {
                   navigator.clipboard.writeText(
-                    addressRef.current?.innerText || ""
+                    nodeStatus?.nomineeAddress || ""
                   );
                 }
               }}
@@ -95,6 +110,12 @@ export const StakeDisplay = () => {
               <ClipboardIcon fillColor={"black"} />
             </button>
           </div>
+          <hr className="my-1 mx-3" />
+          {qrData != "" && (
+            <div className="flex flex-col items-center gap-y-1 pt-2">
+              <Image src={qrData} width={80} height={80} alt="QR Code" />
+            </div>
+          )}
           <div className="flex flex-col gap-y-3 mt-2">
             <div className="w-full">
               {isConnected && chain?.id === CHAIN_ID ? (
@@ -171,7 +192,7 @@ export const StakeDisplay = () => {
                   </button>
                 </div>
               ) : (
-                <WalletConnectButton />
+                <WalletConnectButton stake={true} />
               )}
             </div>
           </div>
