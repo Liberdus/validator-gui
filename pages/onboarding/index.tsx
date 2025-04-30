@@ -42,7 +42,7 @@ export const FAUCET_CLAIM_DOCS_URL =
 
 const Onboarding = () => {
   const [isNodeStarted, setIsNodeStarted] = useState(false);
-  const [accountBalance, setAccountBalance] = useState("1000");
+  const [accountBalance, setAccountBalance] = useState("");
   const [chainId, setChainId] = useState(CHAIN_ID);
   const [tokenClaimPhase, setTokenClaimPhase] = useState(0); // 0: hasn't claimed yet, 1: initiated request, 2: has claimed
   // const { isConnected, address } = useAccount({
