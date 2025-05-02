@@ -6,13 +6,14 @@ import { useContext, useState } from 'react';
 
 export type NodeSettings = {
   autoRestart: boolean
+  currentNetwork: string
   lastStopped?: number
 }
 
 export type SettingsResult = {
   settings: NodeSettings | undefined,
   isLoading: boolean,
-  updateSettings: (settings: NodeSettings) => Promise<void>
+  updateSettings: (settings: Omit<NodeSettings, 'currentNetwork'>) => Promise<void>
   mutate: KeyedMutator<NodeSettings>
 }
 
@@ -22,7 +23,7 @@ export const useSettings = (): SettingsResult => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const { showErrorMessage } = useContext(ToastContext);
 
-  async function updateSettings(settings: NodeSettings): Promise<void> {
+  async function updateSettings(settings: Omit<NodeSettings, 'currentNetwork'>): Promise<void> {
     setIsLoading(true)
     try {
       const newSettings = await fetcher<NodeSettings>(`${apiBase}/api/settings`, {method: 'POST', body: JSON.stringify(settings)}, showErrorMessage)

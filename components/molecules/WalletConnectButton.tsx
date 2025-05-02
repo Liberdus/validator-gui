@@ -12,3 +12,16 @@ export const WalletConnectButton = ({ stake = false }) => {
     </a>
   );
 };
+
+export const WalletConnectButtonMobile = () => {
+  return (
+    <a
+      className="px-2 py-2 text-xs text-white font-semibold rounded-full bg-blue-700 hover:bg-blue-600 active:bg-blue-800 flex place-content-center items-center"
+      href="https://test.liberdus.com"
+      target="_blank"
+    >
+      Liberdus Wallet
+      <ArrowTopRightOnSquareIcon className="inline h-4 w-5 ms-1" />
+    </a>
+  );
+};

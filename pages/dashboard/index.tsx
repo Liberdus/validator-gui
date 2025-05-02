@@ -5,7 +5,10 @@ import {
   Cog6ToothIcon,
 } from "@heroicons/react/24/solid";
 import { Logo } from "../../components/atoms/Logo";
-import { WalletConnectButton } from "../../components/molecules/WalletConnectButton";
+import {
+  WalletConnectButton,
+  WalletConnectButtonMobile,
+} from "../../components/molecules/WalletConnectButton";
 import { ReactElement, useRef, useState } from "react";
 import { OverviewSidebar } from "../../components/organisms/OverviewSidebar";
 import { TabButton } from "../../components/atoms/TabButton";
@@ -29,6 +32,8 @@ import { MobileMenu } from "../../components/molecules/MobileMenu";
 import { authService } from "../../services/auth.service";
 import { useGlobals } from "../../utils/globals";
 import { InformationPopupsDisplay } from "../../components/molecules/InformationPopupsDisplay";
+import { useNetworkList } from "../../hooks/useNetworkList";
+import { useSettings } from "../../hooks/useSettings";
 
 enum Content {
   MAIN = "MAIN",
@@ -45,6 +50,9 @@ const Dashboard = () => {
     showWindow: state.showWindow,
     setShowWindow: state.setShowWindow,
   }));
+
+  const { isLoading, networks, changeNetwork } = useNetworkList();
+  const { settings, mutate: mutateSettings } = useSettings();
 
   const [contentPane, setContentPane] = useState<Content>(Content.MAIN);
   const setToSettingsDisplay = () => {
@@ -71,6 +79,28 @@ const Dashboard = () => {
               <div className="flex justify-between py-3 w-full">
                 <Logo className="w-32" />
                 <div className="flex items-center gap-x-4 relative w-full place-content-end">
+                  <div className="flex items-center">
+                    <div className="text-black mr-2">Network:</div>
+                    {isLoading ? (
+                      <div className="animate-spin h-5 w-5 border-b-2 border-blue-500 rounded-full ml-2"></div>
+                    ) : (
+                      <select
+                        className="text-sm border border-gray-300 rounded px-2 py-1 bg-white text-black cursor-pointer"
+                        onChange={async (e) => {
+                          await changeNetwork(e.target.value, async () => {
+                            await mutateSettings();
+                          });
+                        }}
+                        value={settings?.currentNetwork}
+                      >
+                        {networks?.map((network: string) => (
+                          <option key={network} value={network}>
+                            {network}
+                          </option>
+                        ))}
+                      </select>
+                    )}
+                  </div>
                   <div className="relative">
                     <BellIcon
                       className="w-5 h-5 text-black cursor-pointer"
@@ -92,7 +122,7 @@ const Dashboard = () => {
                     className="w-5 h-5 text-black bg-white cursor-pointer"
                   />
                   <div>
-                    <WalletConnectButton  />
+                    <WalletConnectButton />
                   </div>
                   <ArrowRightOnRectangleIcon
                     className="h-5 w-5 text-black cursor-pointer tooltip tooltip-bottom"
@@ -203,7 +233,26 @@ const Dashboard = () => {
               <div className="flex justify-between py-3 w-full items-center">
                 <Logo className="w-8" isMinimalLogo={true} />
                 <div className="flex items-center gap-x-3 relative">
-                  <WalletConnectButton />
+                  <WalletConnectButtonMobile />
+                  {isLoading ? (
+                    <div className="animate-spin h-5 w-5 border-b-2 border-blue-500 rounded-full ml-2"></div>
+                  ) : (
+                    <select
+                      className="text-sm border border-gray-300 rounded py-1 bg-white text-black cursor-pointer"
+                      onChange={async (e) => {
+                        await changeNetwork(e.target.value, async () => {
+                          await mutateSettings();
+                        });
+                      }}
+                      value={settings?.currentNetwork}
+                    >
+                      {networks?.map((network: string) => (
+                        <option key={network} value={network}>
+                          {network}
+                        </option>
+                      ))}
+                    </select>
+                  )}
                   <BellIcon
                     className="w-5 h-5 text-black cursor-pointer"
                     onClick={() => {
