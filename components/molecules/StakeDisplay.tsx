@@ -11,6 +11,7 @@ import { ClipboardIcon } from "../atoms/ClipboardIcon";
 import { MobileModalWrapper } from "../layouts/MobileModalWrapper";
 import { useAccountStakeInfo } from "../../hooks/useAccountStakeInfo";
 import { useSettings } from "../../hooks/useSettings";
+import { showSuccessMessage } from "../../hooks/useToastStore";
 import Image from "next/image";
 import encodeQR from "qr";
 
@@ -103,6 +104,7 @@ export const StakeDisplay = () => {
                   navigator.clipboard.writeText(
                     nodeStatus?.nomineeAddress || ""
                   );
+                  showSuccessMessage("Address copied to clipboard");
                 }
               }}
               className="h-3 w-3"
