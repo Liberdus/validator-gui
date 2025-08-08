@@ -12,6 +12,8 @@ import {
 } from "../../hooks/useNotificationsStore";
 import { wasLoggedOutKey } from "../../services/auth.service";
 import useStatusUpdateStore from "../../hooks/useStatusUpdateStore";
+import { useNetworkList } from "../../hooks/useNetworkList";
+import { useSettings } from "../../hooks/useSettings";
 
 export enum NodeState {
   ACTIVE = "ACTIVE",
@@ -223,6 +225,8 @@ export const getDurationBreakdownString = (duration: number) => {
 export const NodeStatus = ({ isWalletConnected, address }: NodeStatusProps) => {
   const { nodeStatus, isLoading, startNode, stopNode } = useNodeStatus();
   // const { nodeStatusHistory } = useNodeStatusHistory(address || "");
+  const { isLoading: isNetworkLoading, networks, changeNetwork } = useNetworkList();
+  const { settings, mutate: mutateSettings } = useSettings();
 
   const state: NodeState = getNodeState(nodeStatus);
   const title = getTitle(state);
@@ -456,6 +460,31 @@ export const NodeStatus = ({ isWalletConnected, address }: NodeStatusProps) => {
             <span className={`text-${titleTextColor} text-xs`}>{subtitle}</span>
           </div>
           <div className="flex flex-col p-3 gap-y-2">
+            <div className="flex justify-between items-center">
+              <span className="font-light text-xs">Network</span>
+              <div className="flex items-center">
+                {isNetworkLoading ? (
+                  <div className="animate-spin h-3 w-3 border-b border-gray-400 rounded-full"></div>
+                ) : (
+                  <select
+                    className="text-xs border border-gray-300 rounded px-2 py-1 bg-white text-black cursor-pointer"
+                    onChange={async (e) => {
+                      await changeNetwork(e.target.value, async () => {
+                        await mutateSettings();
+                      });
+                    }}
+                    value={settings?.currentNetwork}
+                  >
+                    {networks?.map((network: string) => (
+                      <option key={network} value={network}>
+                        {network}
+                      </option>
+                    ))}
+                  </select>
+                )}
+              </div>
+            </div>
+            <hr className="my-1" />
             <div className="flex justify-between">
               <span className="font-light text-xs">Previously active</span>
               <div className="flex flex-col text-xs">

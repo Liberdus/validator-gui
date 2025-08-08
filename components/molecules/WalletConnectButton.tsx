@@ -1,11 +1,23 @@
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 import { useSettings } from "../../hooks/useSettings";
 
+let walletWindow: Window | null = null;
+
 const getWalletUrl = (network?: string) => {
   if (network === "testnet") {
     return "https://liberdus.com/test/";
   }
   return "https://liberdus.com/dev/";
+};
+
+const openWallet = (walletUrl: string, windowName: string) => {
+  console.log(walletWindow, walletWindow?.closed);
+  if (walletWindow && !walletWindow.closed) {
+    walletWindow.focus();
+  } else {
+    walletWindow = window.open(walletUrl, windowName);
+    walletWindow?.focus();
+  }
 };
 
 export const WalletConnectButton = ({ stake = false }) => {
@@ -15,11 +27,7 @@ export const WalletConnectButton = ({ stake = false }) => {
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const walletWindow = window.open(
-      walletUrl,
-      `liberdus_wallet_${currentNetwork}`
-    );
-    walletWindow?.focus();
+    openWallet(walletUrl, `liberdus_wallet_${currentNetwork}`);
   };
 
   return (
@@ -41,11 +49,7 @@ export const WalletConnectButtonMobile = () => {
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const walletWindow = window.open(
-      walletUrl,
-      `liberdus_wallet_${currentNetwork}`
-    );
-    walletWindow?.focus();
+    openWallet(walletUrl, `liberdus_wallet_${currentNetwork}`);
   };
 
   return (
