@@ -1,27 +1,61 @@
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
+import { useSettings } from "../../hooks/useSettings";
+
+const getWalletUrl = (network?: string) => {
+  if (network === "testnet") {
+    return "https://liberdus.com/test/";
+  }
+  return "https://liberdus.com/dev/";
+};
 
 export const WalletConnectButton = ({ stake = false }) => {
+  const { settings } = useSettings();
+  const currentNetwork = settings?.currentNetwork || "default";
+  const walletUrl = getWalletUrl(currentNetwork);
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const walletWindow = window.open(
+      walletUrl,
+      `liberdus_wallet_${currentNetwork}`
+    );
+    walletWindow?.focus();
+  };
+
   return (
-    <a
+    <button
       className="w-full px-4 py-2 text-sm text-white font-bold rounded-full bg-blue-700 hover:bg-blue-600 active:bg-blue-800 flex place-content-center items-center"
-      href="https://test.liberdus.com"
-      target="_blank"
+      onClick={handleClick}
+      type="button"
     >
       {stake ? "Stake via Liberdus Wallet" : "Go to Liberdus Wallet"}
       <ArrowTopRightOnSquareIcon className="inline h-4 w-5 ms-1" />
-    </a>
+    </button>
   );
 };
 
 export const WalletConnectButtonMobile = () => {
+  const { settings } = useSettings();
+  const currentNetwork = settings?.currentNetwork || "default";
+  const walletUrl = getWalletUrl(currentNetwork);
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const walletWindow = window.open(
+      walletUrl,
+      `liberdus_wallet_${currentNetwork}`
+    );
+    walletWindow?.focus();
+  };
+
   return (
-    <a
+    <button
       className="px-2 py-2 text-xs text-white font-semibold rounded-full bg-blue-700 hover:bg-blue-600 active:bg-blue-800 flex place-content-center items-center"
-      href="https://test.liberdus.com"
-      target="_blank"
+      onClick={handleClick}
+      type="button"
     >
       Liberdus Wallet
       <ArrowTopRightOnSquareIcon className="inline h-4 w-5 ms-1" />
-    </a>
+    </button>
   );
 };

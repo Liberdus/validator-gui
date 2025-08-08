@@ -8,6 +8,14 @@ import useModalStore from "../../hooks/useModalStore";
 import { ConfirmRedemptionModal } from "./ConfirmRedemptionModal";
 import { MobileModalWrapper } from "../layouts/MobileModalWrapper";
 import { BgImage } from "../atoms/BgImage";
+import { useSettings } from "../../hooks/useSettings";
+
+const getWalletUrl = (network?: string) => {
+  if (network === "testnet") {
+    return "https://liberdus.com/test";
+  }
+  return "https://liberdus.com/dev";
+};
 
 function formatDate(date: Date) {
   // Format date and time separately
@@ -38,6 +46,7 @@ export const RewardsCard = () => {
   const { nodeStatus } = useNodeStatus();
   const { address, isConnected } = useAccount();
   const { chain } = useNetwork();
+  const { settings } = useSettings();
   const [canRedeem, setCanRedeem] = useState(
     isConnected &&
       chain?.id === CHAIN_ID &&
@@ -99,23 +108,13 @@ export const RewardsCard = () => {
               If absolutely necessary, use the force stop option in settings (Not Recommended)."
               disabled={!canRedeem}
               onClick={() => {
-                resetModal();
-                setContent(
-                  <MobileModalWrapper
-                    closeButtonRequired={false}
-                    contentOnTop={false}
-                  >
-                    <ConfirmRedemptionModal
-                      nominator={address?.toString() || ""}
-                      nominee={nodeStatus?.nomineeAddress || ""}
-                      currentRewards={parseFloat(
-                        nodeStatus?.currentRewards || "0"
-                      )}
-                      currentStake={parseFloat(nodeStatus?.lockedStake || "0")}
-                    ></ConfirmRedemptionModal>
-                  </MobileModalWrapper>
+                const currentNetwork = settings?.currentNetwork || "default";
+                const walletUrl = getWalletUrl(currentNetwork);
+                const walletWindow = window.open(
+                  walletUrl,
+                  `liberdus_wallet_${currentNetwork}`
                 );
-                setShowModal(true);
+                walletWindow?.focus();
               }}
             >
               Redeem Rewards
