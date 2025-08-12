@@ -11,7 +11,6 @@ const getWalletUrl = (network?: string) => {
 };
 
 const openWallet = (walletUrl: string, windowName: string) => {
-  console.log(walletWindow, walletWindow?.closed);
   if (walletWindow && !walletWindow.closed) {
     walletWindow.focus();
   } else {
