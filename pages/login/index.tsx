@@ -20,13 +20,15 @@ const Login = () => {
 
   // redirect to home if already logged in
   if (authService.isLogged) {
-    const onboardingCompleted =
-      localStorage.getItem(onboardingCompletedKey) === "true";
-    if (onboardingCompleted) {
-      router.replace("/onboarding");
-    } else {
-      router.replace("/dashboard");
-    }
+    // Skip onboarding and go directly to dashboard
+    router.replace("/dashboard");
+    // const onboardingCompleted =
+    //   localStorage.getItem(onboardingCompletedKey) === "true";
+    // if (onboardingCompleted) {
+    //   router.replace("/onboarding");
+    // } else {
+    //   router.replace("/dashboard");
+    // }
   }
 
   const { version } = useNodeVersion(true);

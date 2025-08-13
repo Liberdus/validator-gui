@@ -41,7 +41,7 @@ export const SettingsDisplay = () => {
           isOn={settings?.autoRestart || false}
           onClick={toggleAutoRestart}
         />
-        {nodeStatus && (
+        {/* {nodeStatus && (
           <ForceRemoveStake
             isEnabled={
               isConnected &&
@@ -53,7 +53,7 @@ export const SettingsDisplay = () => {
             currentRewards={parseFloat(nodeStatus?.currentRewards || "0")}
             currentStake={parseFloat(stakeInfo?.stake || "0")}
           />
-        )}
+        )} */}
         {nodeStatus && (
           <ForceStopNode
             isEnabled={nodeStatus.state !== "stopped"}

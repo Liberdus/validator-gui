@@ -37,11 +37,13 @@ export const LoginForm: React.FC = () => {
     await authService
       .login(apiBase, password)
       .then(() => {
-        if (isFirstTimeUser() && !isMobile) {
-          router.replace("/onboarding");
-        } else {
-          router.replace("/dashboard");
-        }
+        // Skip onboarding and go directly to dashboard
+        router.replace("/dashboard");
+        // if (isFirstTimeUser() && !isMobile) {
+        //   router.replace("/onboarding");
+        // } else {
+        //   router.replace("/dashboard");
+        // }
       })
       .catch((error) => {
         setApiError(error as SetStateAction<Error | null>);
