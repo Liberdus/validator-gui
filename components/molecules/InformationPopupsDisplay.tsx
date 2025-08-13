@@ -143,7 +143,7 @@ export const InformationPopupsDisplay = () => {
                 New validator version available
               </span>
               <span className="bodyFg font-light text-xs">
-                A new validator version (V {version?.activeLiberdusVersion}) is
+                A new validator version (V {version?.minLiberdusVersion}) is
                 available and ready to update.
               </span>
             </div>
