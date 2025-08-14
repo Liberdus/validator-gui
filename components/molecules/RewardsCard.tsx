@@ -36,31 +36,32 @@ function formatDate(date: Date) {
 }
 
 export const RewardsCard = () => {
-  const { setShowModal, setContent, resetModal } = useModalStore(
-    (state: any) => ({
-      setShowModal: state.setShowModal,
-      setContent: state.setContent,
-      resetModal: state.resetModal,
-    })
-  );
+  // const { setShowModal, setContent, resetModal } = useModalStore(
+  //   (state: any) => ({
+  //     setShowModal: state.setShowModal,
+  //     setContent: state.setContent,
+  //     resetModal: state.resetModal,
+  //   })
+  // );
   const { nodeStatus } = useNodeStatus();
-  const { address, isConnected } = useAccount();
-  const { chain } = useNetwork();
+  // const { address, isConnected } = useAccount();
+  // const { chain } = useNetwork();
   const { settings } = useSettings();
   const [canRedeem, setCanRedeem] = useState(
-    isConnected &&
-      chain?.id === CHAIN_ID &&
-      nodeStatus?.state === "stopped" &&
+    // isConnected &&
+    //   chain?.id === CHAIN_ID &&
+    nodeStatus?.state === "stopped" &&
       parseFloat(nodeStatus?.lockedStake || "0") > 0
   );
   useEffect(() => {
     setCanRedeem(
-      isConnected &&
-        chain?.id === CHAIN_ID &&
-        nodeStatus?.state === "stopped" &&
+      // isConnected &&
+      // chain?.id === CHAIN_ID &&
+      nodeStatus?.state === "stopped" &&
         parseFloat(nodeStatus?.lockedStake || "0") > 0
     );
-  }, [nodeStatus?.state, nodeStatus?.lockedStake, isConnected, chain?.id]);
+    // }, [nodeStatus?.state, nodeStatus?.lockedStake, isConnected, chain?.id]);
+  }, [nodeStatus?.state, nodeStatus?.lockedStake]);
 
   return (
     <Card>
