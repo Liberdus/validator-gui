@@ -69,7 +69,12 @@ export const StakeDisplay = () => {
 
   const formatRemainingTime = (ms: number) => {
     const minutes = Math.floor(ms / 60000);
-    const seconds = Math.floor((ms % 60000) / 1000);
+    let seconds = Math.floor((ms % 60000) / 1000);
+
+    if (minutes === 0 && seconds === 0) {
+      // Never show "0m 0s". This should only occur if the number of ms is less than 1000.
+      seconds = 1;
+    }
     return `${minutes}m ${seconds}s`;
   };
 
@@ -85,7 +90,7 @@ export const StakeDisplay = () => {
           </span>
           <div className="flex gap-x-1">
             <span className="font-light text-xs">Min. requirement: </span>
-            <span className="text-xs">{minimumStakeRequirement} LIB</span>
+            <span className="text-sm">{nodeStatus?.stakeRequirement || '—.—'} LIB</span>
           </div>
         </div>
         <hr className="my-1 mx-3" />
