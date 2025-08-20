@@ -27,6 +27,7 @@ export enum NodeState {
   WAITING_FOR_NETWORK = "WAITING_FOR_NETWORK",
   READY = "READY",
   SELECTED = "SELECTED",
+  LOADING = "LOADING",
 }
 
 const previousNodeStateKey = "previousNodeState";
@@ -93,7 +94,7 @@ export const NodeStatusRibbon = () => {
         )
       ) {
         if (wasLoggedOut) {
-          setCurrentStatus(nodeStatus?.state || "");
+          setCurrentStatus(nodeStatus?.state || '', nodeStatus?.exitStatus, nodeStatus?.exitMessage)
           localStorage.removeItem(wasLoggedOutKey);
         }
       }

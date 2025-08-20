@@ -22,9 +22,15 @@ crypto.init('64f152869ca2d473e4ba64ab53f49ccdb2edae22da192c126850970e788af347');
 
 export const loginHandler = [doubleCsrfProtection,(req: Request, res: Response) => {
   const password = req.body && req.body.password
-  const hashedPass = crypto.hash(password);
+
+  // Make sure password is defined and is a string
+  if (!password || typeof password !== 'string') {
+    res.status(400).send({ error: 'Invalid password' })
+    return
+  }
+
   // Exec the CLI validator login command
-  execFile('operator-cli', ['gui', 'login', hashedPass], (err, stdout, stderr) => {
+  execFile('/usr/local/bin/operator-cli', ['gui', 'login', password], (err, stdout, stderr) => {
     if (err) {
       cliStderrResponse(res, 'Unable to check login', err.message)
       return

@@ -648,7 +648,7 @@ const Onboarding = () => {
                               >
                                 <span>Minimum stake requirement: </span>
                                 <span className="font-semibold">
-                                  {minimumStakeRequirement.toFixed(0)} LIB
+                                  {nodeStatus?.stakeRequirement || "10"} SHM LIB
                                 </span>
                               </div>
                               {accountBalance !== "" && (

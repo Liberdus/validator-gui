@@ -1,7 +1,11 @@
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import useStatusUpdateStore from "../../hooks/useStatusUpdateStore";
 
-const getStatusUpdateText = (status: string) => {
+const getStatusUpdateText = (
+  status: string,
+  exitStatus?: string | null,
+  exitMessage?: string | null
+) => {
   let statusUpdateText = "";
   switch (status) {
     case "active":
@@ -9,12 +13,21 @@ const getStatusUpdateText = (status: string) => {
         "Hey there! While you were away, you were moved into the validating queue.";
       break;
     case "stopped":
-      statusUpdateText =
-        "Your node stopped unexpectedly while you were away. Please start the node to start earning rewards.";
+      if (
+        exitStatus != null &&
+        exitStatus !== "" &&
+        exitStatus !== "Exited cleanly"
+      ) {
+        statusUpdateText =
+          "Your node stopped unexpectedly while you were away. Please start the node to start earning rewards.";
+      } else {
+        statusUpdateText =
+          "Your node is stopped. Please start the node to start earning rewards.";
+      }
       break;
     case "need-stake":
       statusUpdateText =
-        "Your node is on standby as you do not have any staked LIB. Please stake a minimum of 10 LIB to start validating.";
+        'Your node is on standby as you do not have any staked LIB. Please stake node to start validating.'
       break;
     case "waiting-for-network":
       statusUpdateText =
@@ -46,7 +59,7 @@ const getBgColor = (state: string) => {
   switch (state) {
     case "active":
     case "selected":
-    case "ready": 
+    case "ready":
       return "successBg";
     case "stopped":
       return "dangerBg";
@@ -81,10 +94,13 @@ const getBorderColor = (state: string) => {
 };
 
 export const NodeStatusUpdate = () => {
-  const { currentStatus, reset } = useStatusUpdateStore((state: any) => ({
-    currentStatus: state.currentStatus,
-    reset: state.reset,
-  }));
+  const { currentStatus, exitStatus, exitMessage, reset } =
+    useStatusUpdateStore((state: any) => ({
+      currentStatus: state.currentStatus,
+      exitStatus: state.exitStatus,
+      exitMessage: state.exitMessage,
+      reset: state.reset,
+    }));
 
   return (
     <div>
@@ -122,7 +138,7 @@ export const NodeStatusUpdate = () => {
           )} border border-${getBorderColor(currentStatus)} border-t-0`}
         >
           <span className="bodyFg font-light text-xs ">
-            {getStatusUpdateText(currentStatus)}
+            {getStatusUpdateText(currentStatus, exitStatus, exitMessage)}
           </span>
           <div>
             <XMarkIcon className="h-3 w-3 cursor-pointer" onClick={reset} />

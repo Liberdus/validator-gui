@@ -28,12 +28,8 @@ export const AddStakeModal = () => {
   const stakeInputRef = useRef<HTMLInputElement>(null);
   const [stakedAmount, setStakedAmount] = useState(0);
   const minimumStakeRequirement = useMemo(() => {
-    return Math.max(
-      parseFloat(nodeStatus?.stakeRequirement || "10") -
-        parseFloat(nodeStatus?.lockedStake || "0"),
-      0
-    );
-  }, [nodeStatus?.stakeRequirement, nodeStatus?.lockedStake]);
+    return Math.max(parseFloat(nodeStatus?.stakeRequirement || '—.—') - parseFloat(nodeStatus?.lockedStake || '0'), 0)
+  }, [nodeStatus?.stakeRequirement, nodeStatus?.lockedStake])
 
   const {
     sendTransaction,
@@ -145,7 +141,7 @@ export const AddStakeModal = () => {
               >
                 <span>Minimum stake requirement: </span>
                 <span className="font-semibold">
-                  {minimumStakeRequirement.toFixed(0)} LIB
+                  {nodeStatus?.stakeRequirement || "10"} SHM
                 </span>
               </div>
               {data?.formatted && (
