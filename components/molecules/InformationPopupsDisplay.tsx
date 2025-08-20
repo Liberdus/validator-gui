@@ -27,7 +27,7 @@ export const InformationPopupsDisplay = () => {
       (version?.runningCliVersion || 0) < (version?.latestCliVersion || 0);
     const newValidatorAvailable =
       (version?.runnningValidatorVersion || 0) <
-      (version?.activeLiberdusVersion || 0);
+      (version?.minLiberdusVersion || 0);
 
     if (newGuiAvailable) {
       addNotification({
