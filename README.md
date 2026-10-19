@@ -1,5 +1,8 @@
 # Overview
 
+To run a validator node follow the instructions in the validator-dashboard repo. These instructions are for developers. 
+https://github.com/Liberdus/validator-dashboard
+
 The Operator CLI is a command line tool for managing a validator instance on a Liberdus network. The Operator CLI tool also collects debug data from running Shardus app network.
 
 ## Getting Started with Local Development
