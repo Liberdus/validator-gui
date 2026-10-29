@@ -33,14 +33,6 @@ export const StakeDisplay = () => {
   const [hasNodeStopped, setHasNodeStopped] = useState(false);
   const [qrData, setQRData] = useState("");
 
-  const minimumStakeRequirement = useMemo(() => {
-    return Math.max(
-      parseFloat(nodeStatus?.stakeRequirement || "10") -
-        parseFloat(nodeStatus?.lockedStake || "0"),
-      0
-    );
-  }, [nodeStatus?.stakeRequirement, nodeStatus?.lockedStake]);
-
   useEffect(() => {
     if (nodeStatus?.state === "stopped") {
       setHasNodeStopped(true);

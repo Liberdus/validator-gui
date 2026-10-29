@@ -90,7 +90,7 @@ const Onboarding = () => {
   const { nodeStatus, isLoading, startNode } = useNodeStatus();
   const minimumStakeRequirement = useMemo(() => {
     return Math.max(
-      parseFloat(nodeStatus?.stakeRequirement || "10") -
+      parseFloat(nodeStatus?.stakeRequirement || "—.—") -
         parseFloat(nodeStatus?.lockedStake || "0"),
       0
     );
@@ -648,7 +648,7 @@ const Onboarding = () => {
                               >
                                 <span>Minimum stake requirement: </span>
                                 <span className="font-semibold">
-                                  {nodeStatus?.stakeRequirement || "10"} SHM LIB
+                                  {nodeStatus?.stakeRequirement || '—.—'} LIB
                                 </span>
                               </div>
                               {accountBalance !== "" && (

@@ -140,9 +140,7 @@ export const AddStakeModal = () => {
                 }
               >
                 <span>Minimum stake requirement: </span>
-                <span className="font-semibold">
-                  {nodeStatus?.stakeRequirement || "10"} SHM
-                </span>
+                <span className="font-semibold">{nodeStatus?.stakeRequirement || '—.—'} LIB</span>
               </div>
               {data?.formatted && (
                 <div className="text-xs">
