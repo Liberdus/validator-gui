@@ -2,6 +2,9 @@
   "name": "dashboard-gui",
   "version": "1.4.1",
   "private": false,
+  "engines": {
+    "node": "^24.0.0"
+  },
   "scripts": {
     "build": "next build && next export && tsc -project tsconfig.server.json",
     "start": "node build/index.js",
@@ -20,9 +23,9 @@
     "format-fix": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\""
   },
   "dependencies": {
-    "@shardeum-foundation/lib-crypto-utils": "4.3.0",
     "@heroicons/react": "2.0.18",
     "@rainbow-me/rainbowkit": "1.0.7",
+    "@shardus/lib-crypto-utils": "4.4.0",
     "@walletconnect/modal": "2.6.2",
     "chart.js": "4.3.0",
     "cookie-parser": "1.4.6",

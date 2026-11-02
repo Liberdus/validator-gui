@@ -15,7 +15,7 @@ import path from 'path';
 import { existsSync } from 'fs';
 import asyncRouteHandler from './async-router-handler';
 import fs from 'fs';
-import * as crypto from '@shardus/crypto-utils';
+import * as crypto from '@shardus/lib-crypto-utils';
 import { doubleCsrfProtection } from '../csrf';
 
 const yaml = require('js-yaml')
