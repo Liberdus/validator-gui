@@ -79,7 +79,7 @@ export const SupportOptions = ({ onClose }: SupportOptionsProps) => {
           <div className="flex flex-col">
             <Link
               className="flex gap-x-1 cursor-pointer items-center py-1"
-              href="https://github.com/liberdus"
+              href="https://github.com/Liberdus/validator-gui"
               target="_blank"
             >
               <span className="font-semibold">View Github</span>
