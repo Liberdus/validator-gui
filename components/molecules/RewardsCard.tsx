@@ -95,18 +95,22 @@ export const RewardsCard = () => {
               {parseFloat(nodeStatus?.currentRewards || "0").toFixed(2)}{" "} LIB
             </span>
           </div>
-          <div>
+          <div className="w-full text-left">
+          <div
+            className= "tooltip tooltip-top whitespace-pre-line"
+            data-tip={
+              !canRedeem
+                ? "It is not possible to redeem rewards while you are validating. If absolutely necessary, use the force stop option in settings (Not Recommended)."
+                : `You can redeem the rewards from the Liberdus app.\nClick on redeem rewards button to open the app, then open the menu and go to validator section.`
+              }
+            >
             <button
               className={
                 `mt-3 px-4 py-1 text-sm rounded-full font-bold ` +
                 (canRedeem
                   ? "bg-blue-700 text-white"
-                  : `bg-gray-200 text-gray-500 ${
-                      nodeStatus?.state === "active" ? "tooltip" : ""
-                    }`)
+                  : "bg-gray-200 text-gray-500 cursor-not-allowed")
               }
-              data-tip="It is not possible to redeem rewards while you are validating.
-              If absolutely necessary, use the force stop option in settings (Not Recommended)."
               disabled={!canRedeem}
               onClick={() => {
                 const currentNetwork = settings?.currentNetwork || "default";
@@ -121,6 +125,8 @@ export const RewardsCard = () => {
               Redeem Rewards
             </button>
           </div>
+
+        </div>
         </div>
       </div>
     </Card>
