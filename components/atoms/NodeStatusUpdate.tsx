@@ -1,10 +1,12 @@
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { useNodeStatus } from "../../hooks/useNodeStatus";
 import useStatusUpdateStore from "../../hooks/useStatusUpdateStore";
 
 const getStatusUpdateText = (
   status: string,
   exitStatus?: string | null,
-  exitMessage?: string | null
+  exitMessage?: string | null,
+  requiredStake?: string
 ) => {
   let statusUpdateText = "";
   switch (status) {
@@ -26,8 +28,11 @@ const getStatusUpdateText = (
       }
       break;
     case "need-stake":
-      statusUpdateText =
-        'Your node is on standby as you do not have any staked LIB. Please stake node to start validating.'
+      statusUpdateText = `Your node is on standby as you do not have any staked LIB. Please stake ${
+        requiredStake
+          ? `a minimum of ${requiredStake} LIB`
+          : "the required amount of LIB"
+      } to start validating.`;
       break;
     case "waiting-for-network":
       statusUpdateText =
@@ -94,6 +99,7 @@ const getBorderColor = (state: string) => {
 };
 
 export const NodeStatusUpdate = () => {
+  const { nodeStatus } = useNodeStatus();
   const { currentStatus, exitStatus, exitMessage, reset } =
     useStatusUpdateStore((state: any) => ({
       currentStatus: state.currentStatus,
@@ -138,7 +144,7 @@ export const NodeStatusUpdate = () => {
           )} border border-${getBorderColor(currentStatus)} border-t-0`}
         >
           <span className="bodyFg font-light text-xs ">
-            {getStatusUpdateText(currentStatus, exitStatus, exitMessage)}
+            {getStatusUpdateText(currentStatus, exitStatus, exitMessage, nodeStatus?.stakeRequirement)}
           </span>
           <div>
             <XMarkIcon className="h-3 w-3 cursor-pointer" onClick={reset} />
