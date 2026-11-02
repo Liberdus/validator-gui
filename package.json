@@ -2,6 +2,9 @@
   "name": "dashboard-gui",
   "version": "1.4.1",
   "private": false,
+  "engines": {
+    "node": "^24.0.0"
+  },
   "scripts": {
     "build": "next build && next export && tsc -project tsconfig.server.json",
     "start": "node build/index.js",
