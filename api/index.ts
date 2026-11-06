@@ -24,6 +24,7 @@ if (isDev) {
     app.use(httpBodyLimiter)
     app.use(apiLimiter)
     app.use(cookieParser());
+    app.use(preventBrowserCacheForDynamicContent)
     app.get('/csrf-token', generateTokenHandler)
     app.post('/auth/login', loginAttemptLimiter, loginHandler)
     app.post('/auth/logout', logoutHandler)
@@ -43,14 +44,14 @@ if (isDev) {
   app.use(apiLimiter)
   app.use(cookieParser());
   setSecurityHeaders(app);
+  app.use(preventBrowserCacheForDynamicContent)
   app.get('/csrf-token', generateTokenHandler)
-  app.post('/auth/login', loginHandler)
+  app.post('/auth/login', loginAttemptLimiter, loginHandler)
   app.post('/auth/logout', logoutHandler)
   app.use('/api', jwtMiddleware, apiRouter)
   app.get('/node/version', nodeVersionHandler)
   app.use(errorMiddleware(isDev))
   app.use(cacheStaticFiles);
-  app.use(preventBrowserCacheForDynamicContent);
   app.use(express.static(path.join(__dirname, "..", "out"), { extensions: ['html'] }));
   const privateKey = fs.readFileSync(path.join(__dirname, '../selfsigned.key'), 'utf8');
   const certificate = fs.readFileSync(path.join(__dirname, '../selfsigned.crt'), 'utf8');
