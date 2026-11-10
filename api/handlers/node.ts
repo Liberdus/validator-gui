@@ -15,7 +15,6 @@ import path from 'path';
 import { existsSync } from 'fs';
 import asyncRouteHandler from './async-router-handler';
 import fs from 'fs';
-import * as crypto from '@shardus/crypto-utils';
 import { doubleCsrfProtection } from '../csrf';
 
 const yaml = require('js-yaml')
@@ -217,4 +216,36 @@ export default function configureNodeHandlers(apiRouter: Router) {
     res.json(getSettings());
   }));
 
+  apiRouter.get(
+    "/networks",
+    asyncRouteHandler(
+      async (req: Request, res: Response<NodeNetworkResponse>) => {
+        // Exec the CLI validator networks command
+        console.log("executing operator-cli networks");
+        const output = execFileSync("/usr/local/bin/operator-cli", ["networks"], {
+          encoding: "utf8",
+        });
+        const yamlData = yaml.load(output);
+        res.json(yamlData);
+      }
+    )
+  );
+
+  apiRouter.post(
+    "/set_network",
+    doubleCsrfProtection,
+    asyncRouteHandler(async (req: Request, res: Response) => {
+      const networkName = req.body?.network;
+      if (!networkName) {
+        badRequestResponse(res, "Network name not provided");
+        return;
+      }
+      try {
+        execFileSync("/usr/local/bin/operator-cli", ["set", "network", networkName]);
+        res.status(200).json({ status: "ok" });
+      } catch (e) {
+        cliStderrResponse(res, "Failed to set network", (e as Error).message);
+      }
+    })
+  );
 }
