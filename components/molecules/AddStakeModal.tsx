@@ -28,7 +28,7 @@ export const AddStakeModal = () => {
   const stakeInputRef = useRef<HTMLInputElement>(null);
   const [stakedAmount, setStakedAmount] = useState(0);
   const minimumStakeRequirement = useMemo(() => {
-    return Math.max(parseFloat(nodeStatus?.stakeRequirement || '—.—') - parseFloat(nodeStatus?.lockedStake || '0'), 0)
+    return Math.max(parseFloat(nodeStatus?.stakeRequirement || '0') - parseFloat(nodeStatus?.lockedStake || '0'), 0)
   }, [nodeStatus?.stakeRequirement, nodeStatus?.lockedStake])
 
   const {

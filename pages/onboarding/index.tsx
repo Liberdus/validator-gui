@@ -90,7 +90,7 @@ const Onboarding = () => {
   const { nodeStatus, isLoading, startNode } = useNodeStatus();
   const minimumStakeRequirement = useMemo(() => {
     return Math.max(
-      parseFloat(nodeStatus?.stakeRequirement || "—.—") -
+      parseFloat(nodeStatus?.stakeRequirement || "0") -
         parseFloat(nodeStatus?.lockedStake || "0"),
       0
     );
