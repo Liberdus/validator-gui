@@ -14,7 +14,7 @@ const getWalletUrl = (network?: string) => {
   if (network === "testnet") {
     return "https://liberdus.com/test";
   }
-  return "https://liberdus.com/dev";
+  return "https://app-dev.liberdus.com";
 };
 
 function formatDate(date: Date) {

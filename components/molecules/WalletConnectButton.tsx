@@ -7,7 +7,7 @@ const getWalletUrl = (network?: string) => {
   if (network === "testnet") {
     return "https://liberdus.com/test/";
   }
-  return "https://liberdus.com/dev/";
+  return "https://app-dev.liberdus.com";
 };
 
 const openWallet = (walletUrl: string, windowName: string) => {
