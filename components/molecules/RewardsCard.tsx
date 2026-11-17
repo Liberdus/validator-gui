@@ -97,12 +97,10 @@ export const RewardsCard = () => {
           </div>
           <div className="w-full text-left">
           <div
-            className= "tooltip tooltip-top whitespace-pre-line"
+            className={`${canRedeem || nodeStatus?.state === "active" ? "tooltip" : ""} tooltip-top whitespace-pre-line`}
             data-tip={
               !canRedeem
-                ? nodeStatus?.state === "stopped"
-                  ? "There is no stake on this node, so there are no rewards to redeem."
-                  : "It is not possible to redeem rewards while you are validating. If absolutely necessary, use the force stop option in settings (Not Recommended)."
+                ? "It is not possible to redeem rewards while you are validating. If absolutely necessary, use the force stop option in settings (Not Recommended)."
                 : `You can redeem the rewards from the Liberdus app.\nClick on redeem rewards button to open the app, then open the menu and go to validator section.`
               }
             >
